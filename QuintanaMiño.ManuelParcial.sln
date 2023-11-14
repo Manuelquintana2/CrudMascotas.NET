@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{5792134F-35B4-4D0C-A6EF-C690D7F17FDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMascotasUI", "AppMascotasUI\AppMascotasUI.csproj", "{3D3A6FA4-2682-43FE-9E10-8034D4EF55E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5792134F-35B4-4D0C-A6EF-C690D7F17FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5792134F-35B4-4D0C-A6EF-C690D7F17FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5792134F-35B4-4D0C-A6EF-C690D7F17FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5792134F-35B4-4D0C-A6EF-C690D7F17FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D3A6FA4-2682-43FE-9E10-8034D4EF55E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3A6FA4-2682-43FE-9E10-8034D4EF55E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3A6FA4-2682-43FE-9E10-8034D4EF55E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3A6FA4-2682-43FE-9E10-8034D4EF55E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2EBE1EE8-C307-47ED-8866-23761A62D72B}
+	EndGlobalSection
+EndGlobal
