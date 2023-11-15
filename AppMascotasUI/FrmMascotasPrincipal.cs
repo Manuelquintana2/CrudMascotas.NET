@@ -112,29 +112,36 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FrmAgregarMascotas frm = new FrmAgregarMascotas();
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
+            if(this.usuarioLogueado.perfil == "vendedor")
             {
-                if (frm.perro.Nombre != "")
+                MessageBox.Show($"Error no puedes agregar mascotas, PERFIL: {usuarioLogueado.perfil}","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            else
+            {
+                FrmAgregarMascotas frm = new FrmAgregarMascotas();
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
                 {
-                    this.casa += frm.perro;
-                }
-                else
-                {
-                    if (frm.gato.Nombre != "")
+                    if (frm.perro.Nombre != "")
                     {
-                        this.casa += frm.gato;
+                        this.casa += frm.perro;
                     }
                     else
                     {
-                        if (frm.loro.Nombre != "")
+                        if (frm.gato.Nombre != "")
                         {
-                            this.casa += frm.loro;
+                            this.casa += frm.gato;
+                        }
+                        else
+                        {
+                            if (frm.loro.Nombre != "")
+                            {
+                                this.casa += frm.loro;
+                            }
                         }
                     }
+                    this.ActualizarVisor();
                 }
-                this.ActualizarVisor();
             }
         }
         /// <summary>
@@ -156,47 +163,54 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            int indice;
-            indice = this.lstMascotas.SelectedIndex;
-
-            if (indice == -1)
+            if (this.usuarioLogueado.perfil == "vendedor")
             {
-                return;
-            }
-            Mascota m = this.casa.mascotas[indice];
-            if (m is Perro)
-            {
-                Perro perro = (Perro)m;
-                FrmModificarPerro frm = new FrmModificarPerro(perro);
-                frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    this.casa.mascotas[indice] = frm.perro;
-                    this.ActualizarVisor();
-                }
+                MessageBox.Show($"Error no puedes modificar mascotas, PERFIL: {usuarioLogueado.perfil}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (m is Gato)
+                int indice;
+                indice = this.lstMascotas.SelectedIndex;
+
+                if (indice == -1)
                 {
-                    Gato gato = (Gato)m;
-                    FrmModificarGato frm = new FrmModificarGato(gato);
+                    return;
+                }
+                Mascota m = this.casa.mascotas[indice];
+                if (m is Perro)
+                {
+                    Perro perro = (Perro)m;
+                    FrmModificarPerro frm = new FrmModificarPerro(perro);
                     frm.ShowDialog();
                     if (frm.DialogResult == DialogResult.OK)
                     {
-                        this.casa.mascotas[indice] = frm.gato;
+                        this.casa.mascotas[indice] = frm.perro;
                         this.ActualizarVisor();
                     }
                 }
                 else
                 {
-                    Loro loro = (Loro)m;
-                    FrmModificarLoro frm = new FrmModificarLoro(loro);
-                    frm.ShowDialog();
-                    if (frm.DialogResult == DialogResult.OK)
+                    if (m is Gato)
                     {
-                        this.casa.mascotas[indice] = frm.loro;
-                        this.ActualizarVisor();
+                        Gato gato = (Gato)m;
+                        FrmModificarGato frm = new FrmModificarGato(gato);
+                        frm.ShowDialog();
+                        if (frm.DialogResult == DialogResult.OK)
+                        {
+                            this.casa.mascotas[indice] = frm.gato;
+                            this.ActualizarVisor();
+                        }
+                    }
+                    else
+                    {
+                        Loro loro = (Loro)m;
+                        FrmModificarLoro frm = new FrmModificarLoro(loro);
+                        frm.ShowDialog();
+                        if (frm.DialogResult == DialogResult.OK)
+                        {
+                            this.casa.mascotas[indice] = frm.loro;
+                            this.ActualizarVisor();
+                        }
                     }
                 }
             }
@@ -208,47 +222,54 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int indice;
-            indice = this.lstMascotas.SelectedIndex;
-
-            if (indice == -1)
+            if(this.usuarioLogueado.perfil == "vendedor" || this.usuarioLogueado.perfil == "supervisor")
             {
-                return;
-            }
-            Mascota m = this.casa.mascotas[indice];
-            if (m is Perro)
-            {
-                Perro perro = (Perro)m;
-                FrmEliminarPerro frm = new FrmEliminarPerro(perro);
-                frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    this.casa -= frm.perro;
-                    this.ActualizarVisor();
-                }
+                MessageBox.Show($"Error no puedes eliminar mascotas, PERFIL: {usuarioLogueado.perfil}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (m is Gato)
+                int indice;
+                indice = this.lstMascotas.SelectedIndex;
+
+                if (indice == -1)
                 {
-                    Gato gato = (Gato)m;
-                    FrmEliminarGato frm = new FrmEliminarGato(gato);
+                    return;
+                }
+                Mascota m = this.casa.mascotas[indice];
+                if (m is Perro)
+                {
+                    Perro perro = (Perro)m;
+                    FrmEliminarPerro frm = new FrmEliminarPerro(perro);
                     frm.ShowDialog();
                     if (frm.DialogResult == DialogResult.OK)
                     {
-                        this.casa -= frm.gato;
+                        this.casa -= frm.perro;
                         this.ActualizarVisor();
                     }
                 }
                 else
                 {
-                    Loro loro = (Loro)m;
-                    FrmEliminarLoro frm = new FrmEliminarLoro(loro);
-                    frm.ShowDialog();
-                    if (frm.DialogResult == DialogResult.OK)
+                    if (m is Gato)
                     {
-                        this.casa -= frm.loro;
-                        this.ActualizarVisor();
+                        Gato gato = (Gato)m;
+                        FrmEliminarGato frm = new FrmEliminarGato(gato);
+                        frm.ShowDialog();
+                        if (frm.DialogResult == DialogResult.OK)
+                        {
+                            this.casa -= frm.gato;
+                            this.ActualizarVisor();
+                        }
+                    }
+                    else
+                    {
+                        Loro loro = (Loro)m;
+                        FrmEliminarLoro frm = new FrmEliminarLoro(loro);
+                        frm.ShowDialog();
+                        if (frm.DialogResult == DialogResult.OK)
+                        {
+                            this.casa -= frm.loro;
+                            this.ActualizarVisor();
+                        }
                     }
                 }
             }
