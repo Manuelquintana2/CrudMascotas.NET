@@ -34,6 +34,11 @@ namespace Entidades
             get { return this.raza; }
             set { this.raza = value; }
         }
+
+        public Gato(string nombre, int edad, decimal peso, int cantPatas, int velocidadDeReaccion, int metrosDeSalto, ERazaGato raza, int id):this(nombre,edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, raza)
+        {
+            this.id = id;
+        }
         /// <summary>
         /// Constructor de la clase gato que recibe algunos parametros, llama al constructor base
         /// Inicializa un atributo

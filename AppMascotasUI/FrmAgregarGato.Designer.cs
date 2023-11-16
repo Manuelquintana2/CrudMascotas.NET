@@ -263,6 +263,7 @@
             Controls.Add(label1);
             Name = "FrmAgregarGato";
             Text = "FrmAgregarGato";
+            Load += FrmAgregarGato_Load;
             ((System.ComponentModel.ISupportInitialize)numEdad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).EndInit();

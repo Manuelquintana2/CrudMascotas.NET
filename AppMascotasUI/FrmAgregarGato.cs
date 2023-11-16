@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using BaseDeDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,6 @@ namespace AppMascotasUI
         {
             if (this.CargarForm())
             {
-                
                 string nombre = txtNombre.Text;
                 int edad = (int)numEdad.Value;
                 decimal peso = numPeso.Value;
@@ -38,23 +38,26 @@ namespace AppMascotasUI
                 if (rBtnBambino.Checked)
                 {
                     this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                    AccesoADatos.agregarGato(this.gato);
                 }
                 else
                 {
                     if (rBtnBritanico.Checked)
                     {
                         this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico);
+                        AccesoADatos.agregarGato(this.gato);
                     }
                     else
                     {
                         if (rBtnPersa.Checked)
                         {
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa);
+                            AccesoADatos.agregarGato(this.gato);
                         }
                         else
                         {
-
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames);
+                            AccesoADatos.agregarGato(this.gato);
                         }
                     }
                 }
@@ -86,6 +89,11 @@ namespace AppMascotasUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void FrmAgregarGato_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

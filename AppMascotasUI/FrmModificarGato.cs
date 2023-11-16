@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using BaseDeDatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -84,27 +85,31 @@ namespace AppMascotasUI
                 int cantPatas = (int)numPatas.Value;
                 int velocidadDeReaccion = (int)numReaccion.Value;
                 int metrosDeSalto = (int)numSalto.Value;
+                int id = (int)numId.Value;
 
                 if (rBtnBambino.Checked)
                 {
-                    this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                    this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino,id);
+                    AccesoADatos.modificarGato(this.gato);
                 }
                 else
                 {
                     if (rBtnBritanico.Checked)
                     {
-                        this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico);
+                        this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico,id);
+                        AccesoADatos.modificarGato(this.gato);
                     }
                     else
                     {
                         if (rBtnPersa.Checked)
                         {
-                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa);
+                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa, id);
+                            AccesoADatos.modificarGato(this.gato);
                         }
                         else
                         {
-
-                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames);
+                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames, id);
+                            AccesoADatos.modificarGato(this.gato);
                         }
                     }
                 }
