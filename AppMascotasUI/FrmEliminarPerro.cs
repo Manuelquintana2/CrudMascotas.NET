@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using BaseDeDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,27 +80,31 @@ namespace AppMascotasUI
                 int cantPatas = (int)numPatas.Value;
                 int kmH = (int)numVelocidad.Value;
                 int velocidadParaComer = (int)numComer.Value;
+                int id = (int)numId.Value;
 
                 if (rBtnGalgo.Checked)
                 {
-                    this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
+                    this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer,id);
+                    AccesoADatos.EliminarPerro(this.perro.Id);
                 }
                 else
                 {
                     if (rBtnPitbull.Checked)
                     {
-                        this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer);
+                        this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer,id);
+                        AccesoADatos.EliminarPerro(this.perro.Id);
                     }
                     else
                     {
                         if (rBtnDooberman.Checked)
                         {
-                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer);
+                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer,id);
+                            AccesoADatos.EliminarPerro(this.perro.Id);
                         }
                         else
                         {
-
-                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer);
+                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer, id);
+                            AccesoADatos.EliminarPerro(this.perro.Id);
                         }
                     }
                 }
@@ -114,6 +119,11 @@ namespace AppMascotasUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void FrmEliminarPerro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

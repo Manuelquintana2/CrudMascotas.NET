@@ -156,6 +156,7 @@
             Controls.Add(lblVelocidad);
             Name = "FrmModificarPerro";
             Text = "FrmModificarPerro";
+            Load += FrmModificarPerro_Load;
             Controls.SetChildIndex(txtNombre, 0);
             Controls.SetChildIndex(numEdad, 0);
             Controls.SetChildIndex(numPeso, 0);

@@ -81,7 +81,7 @@ namespace AppMascotasUI
                 int cantPatas = (int)numPatas.Value;
                 int kmH = (int)numVelocidad.Value;
                 int velocidadParaComer = (int)numComer.Value;
-                int id = Convert.ToInt32(txtId.Text);
+                int id = (int)numId.Value;
 
                 if (rBtnGalgo.Checked)
                 {
@@ -92,18 +92,20 @@ namespace AppMascotasUI
                 {
                     if (rBtnPitbull.Checked)
                     {
-                        this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer);
+                        this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer,id);
+                        AccesoADatos.modificarPerro(this.perro);
                     }
                     else
                     {
                         if (rBtnDooberman.Checked)
                         {
-                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer);
+                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer,id);
+                            AccesoADatos.modificarPerro(this.perro);
                         }
                         else
                         {
-
-                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer);
+                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer, id);
+                            AccesoADatos.modificarPerro(this.perro);
                         }
                     }
                 }
@@ -123,6 +125,11 @@ namespace AppMascotasUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void FrmModificarPerro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

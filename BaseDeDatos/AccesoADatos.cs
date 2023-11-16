@@ -20,11 +20,11 @@ namespace BaseDeDatos
             this.conexion = new SqlConnection(AccesoADatos.cadena_conexion);
         }
 
-        public List<Perro> ObtenerListaPerro()
+        public static List<Perro> ObtenerListaPerro()
         {
             List<Perro> lista = new List<Perro>();
 
-            string query = "SELECT Id,nombre,edad,peso,cantPatas,kilometrosPorHora,velocidadParaComer,raza FROM Perro";
+            string query = "SELECT id,nombre,edad,peso,cantPatas,kilometrosPorHora,velocidadParaComer,raza FROM Perro";
 
             try
             {
@@ -41,7 +41,7 @@ namespace BaseDeDatos
                                 while (dr.Read())
                                 {
                                     var perro = new Perro();
-                                    perro.Id = Convert.ToInt32(dr["Id"]);
+                                    perro.Id = Convert.ToInt32(dr["id"]);
                                     perro.Nombre = dr["nombre"].ToString();
                                     perro.Edad = Convert.ToInt32(dr["edad"]);
                                     perro.Peso = Convert.ToDecimal(dr["peso"]);
@@ -103,7 +103,7 @@ namespace BaseDeDatos
                 "SET nombre = @Nombre ,edad = @Edad, peso = @Peso," +
                 " cantPatas = @CantPatas, kilometrosPorHora = @KilometrosPorHora," +
                 " velocidadParaComer = @VelocidadParacomer, raza = @Raza" +
-                " WHERE Id = @Id";
+                " WHERE id = @Id";
             try
             {
                 using (SqlConnection conexion = new SqlConnection(AccesoADatos.cadena_conexion))
@@ -130,6 +130,28 @@ namespace BaseDeDatos
                 throw;
             }
         }
-         
+        public static void EliminarPerro(int id)
+        {
+            string query = "DELETE FROM Perro " +
+                " WHERE id = @Id";
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(AccesoADatos.cadena_conexion))
+                {
+                    conexion.Open();
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.Add(new SqlParameter("Id", SqlDbType.VarChar) { Value = id });
+                        comando.ExecuteNonQuery();
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 }

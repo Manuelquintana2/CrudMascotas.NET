@@ -25,6 +25,7 @@ namespace Entidades
 
         public Perro(string nombre, int edad, decimal peso, int cantPatas, ERazaPerro raza, int kilometrosPorHora, int velocidadParaComer, int id) : this(nombre, edad, peso, cantPatas, raza, kilometrosPorHora, velocidadParaComer)
         {
+            this.id = id;
         }
 
         /// <summary>

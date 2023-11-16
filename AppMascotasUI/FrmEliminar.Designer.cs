@@ -38,9 +38,12 @@
             numPatas = new NumericUpDown();
             btnEliminar = new Button();
             btnCancelar = new Button();
+            numId = new NumericUpDown();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)numEdad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numId).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -129,11 +132,30 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // numId
+            // 
+            numId.Location = new Point(532, 162);
+            numId.Name = "numId";
+            numId.Size = new Size(242, 27);
+            numId.TabIndex = 17;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(584, 131);
+            label5.Name = "label5";
+            label5.Size = new Size(131, 28);
+            label5.TabIndex = 18;
+            label5.Text = "Id a eliminar";
+            // 
             // FrmEliminar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label5);
+            Controls.Add(numId);
             Controls.Add(btnCancelar);
             Controls.Add(btnEliminar);
             Controls.Add(numPatas);
@@ -146,9 +168,11 @@
             Controls.Add(label1);
             Name = "FrmEliminar";
             Text = "FrmEliminar";
+            Load += FrmEliminar_Load;
             ((System.ComponentModel.ISupportInitialize)numEdad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numId).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -165,5 +189,7 @@
         protected NumericUpDown numPatas;
         protected Button btnEliminar;
         protected Button btnCancelar;
+        protected NumericUpDown numId;
+        private Label label5;
     }
 }

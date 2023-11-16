@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using BaseDeDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,6 +56,17 @@ namespace AppMascotasUI
                 lstMascotas.Items.Add(mascota.ToString());
             }
         }
+
+        private List<Mascota> FusionarListas()
+        {
+            List<Mascota> mascotas = new List<Mascota>();
+            List<Perro> listaPerro = AccesoADatos.ObtenerListaPerro();
+            foreach (Perro perro in listaPerro)
+            {
+                mascotas.Add(perro);
+            }
+            return mascotas;
+        }
         /// <summary>
         /// Escribe el nombre, Apellido, y la fecha del usuario que esta logueado actualmente
         /// </summary>
@@ -65,6 +77,7 @@ namespace AppMascotasUI
             lblArchivo.Text = $"Nombre: {this.usuarioLogueado.nombre} {Environment.NewLine}" +
                 $"Apellido: {this.usuarioLogueado.apellido} {Environment.NewLine}" +
                 $"Fecha: {this.fecha}";
+
         }
         /// <summary>
         /// Lee el archivo Usuario.Log que almacena la lista de todos los usuarios logueados
@@ -348,27 +361,29 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnObtenerDatos_Click(object sender, EventArgs e)
         {
-            OpenFileDialog frm = new OpenFileDialog();
+            this.casa.mascotas = FusionarListas();
+            this.ActualizarVisor();
+            //OpenFileDialog frm = new OpenFileDialog();
 
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                string Path = frm.FileName;
+            //if (frm.ShowDialog() == DialogResult.OK)
+            //{
+            //    string Path = frm.FileName;
 
-                try
-                {
-                    using (XmlTextReader lector = new XmlTextReader(Path))
-                    {
-                        XmlSerializer serializador = new XmlSerializer(typeof(List<Mascota>));
-                        this.casa.mascotas = (List<Mascota>)serializador.Deserialize(lector);
+            //    try
+            //    {
+            //        using (XmlTextReader lector = new XmlTextReader(Path))
+            //        {
+            //            XmlSerializer serializador = new XmlSerializer(typeof(List<Mascota>));
+            //            this.casa.mascotas = (List<Mascota>)serializador.Deserialize(lector);
 
-                        this.ActualizarVisor();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            //            this.ActualizarVisor();
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
         }
 
         /// <summary>

@@ -40,6 +40,7 @@
             ((System.ComponentModel.ISupportInitialize)numEdad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numVelocidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numComer).BeginInit();
             gBoxRaza.SuspendLayout();
@@ -156,6 +157,8 @@
             Controls.Add(lblVelocidad);
             Name = "FrmEliminarPerro";
             Text = "FrmEliminarPerro";
+            Load += FrmEliminarPerro_Load;
+            Controls.SetChildIndex(numId, 0);
             Controls.SetChildIndex(txtNombre, 0);
             Controls.SetChildIndex(numEdad, 0);
             Controls.SetChildIndex(numPeso, 0);
@@ -170,6 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)numEdad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numId).EndInit();
             ((System.ComponentModel.ISupportInitialize)numVelocidad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numComer).EndInit();
             gBoxRaza.ResumeLayout(false);

@@ -38,11 +38,12 @@
             numPatas = new NumericUpDown();
             btnModificar = new Button();
             btnCancelar = new Button();
-            txtId = new TextBox();
             lblId = new Label();
+            numId = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)numEdad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numId).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -132,14 +133,6 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // txtId
-            // 
-            txtId.Location = new Point(546, 222);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(242, 27);
-            txtId.TabIndex = 16;
-            // 
             // lblId
             // 
             lblId.AutoSize = true;
@@ -150,13 +143,20 @@
             lblId.TabIndex = 17;
             lblId.Text = "Id";
             // 
+            // numId
+            // 
+            numId.Location = new Point(546, 223);
+            numId.Name = "numId";
+            numId.Size = new Size(242, 27);
+            numId.TabIndex = 18;
+            // 
             // FrmModificar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(numId);
             Controls.Add(lblId);
-            Controls.Add(txtId);
             Controls.Add(btnCancelar);
             Controls.Add(btnModificar);
             Controls.Add(numPatas);
@@ -173,6 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)numEdad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numId).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -189,7 +190,7 @@
         protected NumericUpDown numPatas;
         protected Button btnModificar;
         protected Button btnCancelar;
-        protected TextBox txtId;
         private Label lblId;
+        protected NumericUpDown numId;
     }
 }

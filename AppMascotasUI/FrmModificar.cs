@@ -26,7 +26,7 @@ namespace AppMascotasUI
         /// <param name="mascota"></param>
         public FrmModificar(Mascota mascota)
         {
-            this.txtId.Text = mascota.Id.ToString();
+            this.numId.Value = mascota.Id;
             this.txtNombre.Text = mascota.Nombre;
             this.numEdad.Value = mascota.Edad;
             this.numPatas.Value = mascota.CantPatas;

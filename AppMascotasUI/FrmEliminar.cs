@@ -50,5 +50,10 @@ namespace AppMascotasUI
             }
             return cargado;
         }
+
+        private void FrmEliminar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
