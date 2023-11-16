@@ -17,6 +17,10 @@ namespace AppMascotasUI
         public FrmEliminar()
         {
             InitializeComponent();
+            this.txtNombre.ReadOnly = true;
+            this.numEdad.ReadOnly = true;
+            this.numPatas.ReadOnly = true;
+            this.numPeso.ReadOnly = true;
         }
         /// <summary>
         /// Rellena los campos con los datos de la mascota

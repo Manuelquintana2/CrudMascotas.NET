@@ -17,6 +17,8 @@ namespace AppMascotasUI
         public FrmEliminarGato()
         {
             InitializeComponent();
+            this.numReaccion.ReadOnly = true;
+            this.numSalto.ReadOnly = true;
         }
         /// <summary>
         /// Rellena los campos con los correspondientes datos del Gato pasado por parametro

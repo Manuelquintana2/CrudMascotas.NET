@@ -26,6 +26,7 @@ namespace AppMascotasUI
         /// <param name="mascota"></param>
         public FrmModificar(Mascota mascota)
         {
+            this.txtId.Text = mascota.Id.ToString();
             this.txtNombre.Text = mascota.Nombre;
             this.numEdad.Value = mascota.Edad;
             this.numPatas.Value = mascota.CantPatas;
@@ -49,13 +50,18 @@ namespace AppMascotasUI
             }
             return cargado;
         }
-        
+
         protected void btnModificar_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text;
             int edad = (int)numEdad.Value;
             decimal peso = numPeso.Value;
             int cantPatas = (int)numPatas.Value;
+        }
+
+        private void FrmModificar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

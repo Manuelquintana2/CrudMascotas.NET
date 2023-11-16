@@ -17,6 +17,8 @@ namespace AppMascotasUI
         public FrmEliminarPerro()
         {
             InitializeComponent();
+            this.numComer.ReadOnly = true;
+            this.numVelocidad.ReadOnly = true;
         }
         /// <summary>
         /// Rellena los campos con las propiedades del Perro que se le pasa por parametro

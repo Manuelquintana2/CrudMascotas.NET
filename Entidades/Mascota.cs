@@ -14,6 +14,7 @@ namespace Entidades
     /// </summary>
     public abstract class Mascota
     {
+        protected int id;
         protected string nombre;
         protected int edad;
         protected decimal peso;
@@ -21,6 +22,11 @@ namespace Entidades
         /// <summary>
         /// Propiedades para poder obtener y setear los valores de los atributos
         /// </summary>
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         public string Nombre
         {
             get { return nombre; }

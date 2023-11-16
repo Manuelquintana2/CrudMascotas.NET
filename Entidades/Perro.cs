@@ -21,6 +21,12 @@ namespace Entidades
         public int VelocidadParaComer { get => velocidadParaComer; set => velocidadParaComer = value; }
         public ERazaPerro Raza { get => raza; set => raza = value; }
 
+
+
+        public Perro(string nombre, int edad, decimal peso, int cantPatas, ERazaPerro raza, int kilometrosPorHora, int velocidadParaComer, int id) : this(nombre, edad, peso, cantPatas, raza, kilometrosPorHora, velocidadParaComer)
+        {
+        }
+
         /// <summary>
         /// Constructor que recibe todos los parametros para sus atributos, 
         /// llama a otro constructor que inicializa otros atributos

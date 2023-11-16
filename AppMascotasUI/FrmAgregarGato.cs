@@ -27,6 +27,7 @@ namespace AppMascotasUI
         {
             if (this.CargarForm())
             {
+                
                 string nombre = txtNombre.Text;
                 int edad = (int)numEdad.Value;
                 decimal peso = numPeso.Value;

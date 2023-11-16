@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using BaseDeDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,23 +38,27 @@ namespace AppMascotasUI
                 if (rBtnGalgo.Checked)
                 {
                     this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
+                    AccesoADatos.agregarPerro(this.perro);
                 }
                 else
                 {
                     if (rBtnPitbull.Checked)
                     {
                         this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer);
+                        AccesoADatos.agregarPerro(this.perro);
                     }
                     else
                     {
                         if (rBtnDooberman.Checked)
                         {
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer);
+                            AccesoADatos.agregarPerro(this.perro);
                         }
                         else
                         {
 
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer);
+                            AccesoADatos.agregarPerro(this.perro);
                         }
                     }
                 }

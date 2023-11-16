@@ -17,6 +17,8 @@ namespace AppMascotasUI
         public FrmEliminarLoro()
         {
             InitializeComponent();
+            this.numAltura.ReadOnly = true;
+            this.numTiempoVuelo.ReadOnly = true;
         }
         /// <summary>
         /// Rellena los campos con los datos del loro pasado por parametro

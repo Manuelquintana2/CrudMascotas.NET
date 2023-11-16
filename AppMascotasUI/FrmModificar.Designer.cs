@@ -38,6 +38,8 @@
             numPatas = new NumericUpDown();
             btnModificar = new Button();
             btnCancelar = new Button();
+            txtId = new TextBox();
+            lblId = new Label();
             ((System.ComponentModel.ISupportInitialize)numEdad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).BeginInit();
@@ -130,11 +132,31 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // txtId
+            // 
+            txtId.Location = new Point(546, 222);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(242, 27);
+            txtId.TabIndex = 16;
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblId.Location = new Point(650, 191);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(30, 28);
+            lblId.TabIndex = 17;
+            lblId.Text = "Id";
+            // 
             // FrmModificar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblId);
+            Controls.Add(txtId);
             Controls.Add(btnCancelar);
             Controls.Add(btnModificar);
             Controls.Add(numPatas);
@@ -147,6 +169,7 @@
             Controls.Add(label1);
             Name = "FrmModificar";
             Text = "FrmModificar";
+            Load += FrmModificar_Load;
             ((System.ComponentModel.ISupportInitialize)numEdad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).EndInit();
@@ -166,5 +189,7 @@
         protected NumericUpDown numPatas;
         protected Button btnModificar;
         protected Button btnCancelar;
+        protected TextBox txtId;
+        private Label lblId;
     }
 }

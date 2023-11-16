@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using BaseDeDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,10 +81,12 @@ namespace AppMascotasUI
                 int cantPatas = (int)numPatas.Value;
                 int kmH = (int)numVelocidad.Value;
                 int velocidadParaComer = (int)numComer.Value;
+                int id = Convert.ToInt32(txtId.Text);
 
                 if (rBtnGalgo.Checked)
                 {
-                    this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
+                    this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer, id);
+                    AccesoADatos.modificarPerro(this.perro);
                 }
                 else
                 {
