@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using BaseDeDatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,7 @@ namespace AppMascotasUI
             this.numAltura.Value = loro.MetrosDeVuelo;
             this.numTiempoVuelo.Value = loro.TiempoDeVuelo;
             this.txtFrase.Text = loro.Palabra;
-            AsignarTexto(loro);
+            this.numId.Value = loro.Id;
             ValidarTipo(loro);
         }
         /// <summary>
@@ -67,21 +68,7 @@ namespace AppMascotasUI
                 }
             }
         }
-        /// <summary>
-        /// Asigna el texto correspondiente segun si el loro habla o no
-        /// </summary>
-        /// <param name="loro"></param>
-        private void AsignarTexto(Loro loro)
-        {
-            if(loro.RepetirPalabras == true)
-            {
-                txtRepite.Text = "si";
-            }
-            else
-            {
-                txtRepite.Text = "no";
-            }
-        }
+
         /// <summary>
         /// Crea un nuevo loro modificado, valida que no falte completar ningun campo
         /// </summary>
@@ -89,9 +76,8 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnModificar_Click_1(object sender, EventArgs e)
         {
-            if (this.ValidarTexto() && base.CargarForm())
+            if (base.CargarForm())
             {
-                bool repite = VerificarSiRepitePalabras();
                 string nombre = txtNombre.Text;
                 int edad = (int)numEdad.Value;
                 decimal peso = numPeso.Value;
@@ -99,27 +85,31 @@ namespace AppMascotasUI
                 int tiempoDeVuelo = (int)numTiempoVuelo.Value;
                 int metrosDeVuelo = (int)numAltura.Value;
                 string palabra = txtFrase.Text;
+                int id = (int)numId.Value;
 
                 if (rBtnAfricano.Checked)
                 {
-                    this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, repite, palabra);
+                    this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra, id);
+                    AccesoADatos.modificarLoro(this.loro);
                 }
                 else
                 {
                     if (rBtnAmazonico.Checked)
                     {
-                        this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, repite, palabra);
+                        this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, palabra, id);
+                        AccesoADatos.modificarLoro(this.loro);
                     }
                     else
                     {
                         if (rBtnEclecto.Checked)
                         {
-                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, repite, palabra);
+                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, palabra, id);
+                            AccesoADatos.modificarLoro(this.loro);
                         }
                         else
                         {
-
-                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, repite, palabra);
+                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, palabra, id);
+                            AccesoADatos.modificarLoro(this.loro);
                         }
                     }
                 }
@@ -127,48 +117,18 @@ namespace AppMascotasUI
             }
             else
             {
-                MessageBox.Show("Complete los campos","Cuidado");
+                MessageBox.Show("Complete los campos", "Cuidado");
             }
         }
-        /// <summary>
-        /// Valida que ingreses los datos correctamente
-        /// </summary>
-        /// <returns></returns>
-        private bool ValidarTexto()
-        {
-            bool retorno = false;
-            this.txtRepite.Text = this.txtRepite.Text.ToLower();
-            if (this.txtRepite.Text == "si" || this.txtRepite.Text == "no")
-            {
-                retorno = true;
-            }
-            else
-            {
-                MessageBox.Show("Ingrese: SI/NO");
-                retorno = false;
-            }
-            return retorno;
-        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
-        /// <summary>
-        /// Verifica si el atributo repetir palabras del loro tiene que ser true o false
-        /// </summary>
-        /// <returns></returns>
-        private bool VerificarSiRepitePalabras()
+
+        private void FrmModificarLoro_Load(object sender, EventArgs e)
         {
-            bool verificado = true;
-            if (txtRepite.Text == "si")
-            {
-                verificado = true;
-            }
-            else
-            {
-                verificado = false;
-            }
-            return verificado;
+
         }
     }
 }

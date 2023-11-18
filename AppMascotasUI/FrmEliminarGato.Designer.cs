@@ -40,6 +40,7 @@
             ((System.ComponentModel.ISupportInitialize)numEdad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numReaccion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numSalto).BeginInit();
             gBoxRaza.SuspendLayout();
@@ -162,6 +163,8 @@
             Controls.Add(label5);
             Name = "FrmEliminarGato";
             Text = "FrmEliminarGato";
+            Load += FrmEliminarGato_Load;
+            Controls.SetChildIndex(numId, 0);
             Controls.SetChildIndex(txtNombre, 0);
             Controls.SetChildIndex(numEdad, 0);
             Controls.SetChildIndex(numPeso, 0);
@@ -176,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)numEdad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numId).EndInit();
             ((System.ComponentModel.ISupportInitialize)numReaccion).EndInit();
             ((System.ComponentModel.ISupportInitialize)numSalto).EndInit();
             gBoxRaza.ResumeLayout(false);

@@ -32,8 +32,6 @@
             numTiempoVuelo = new NumericUpDown();
             label6 = new Label();
             numAltura = new NumericUpDown();
-            label8 = new Label();
-            txtRepite = new TextBox();
             label7 = new Label();
             txtFrase = new TextBox();
             gBoxTipo = new GroupBox();
@@ -44,6 +42,7 @@
             ((System.ComponentModel.ISupportInitialize)numEdad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numTiempoVuelo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numAltura).BeginInit();
             gBoxTipo.SuspendLayout();
@@ -96,28 +95,11 @@
             numAltura.TabIndex = 19;
             numAltura.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(539, 9);
-            label8.Name = "label8";
-            label8.Size = new Size(233, 28);
-            label8.TabIndex = 20;
-            label8.Text = "¿Repite palabras? Si/no";
-            // 
-            // txtRepite
-            // 
-            txtRepite.Location = new Point(546, 40);
-            txtRepite.Name = "txtRepite";
-            txtRepite.Size = new Size(242, 27);
-            txtRepite.TabIndex = 21;
-            // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(599, 70);
+            label7.Location = new Point(599, 9);
             label7.Name = "label7";
             label7.Size = new Size(148, 28);
             label7.TabIndex = 22;
@@ -125,7 +107,7 @@
             // 
             // txtFrase
             // 
-            txtFrase.Location = new Point(546, 100);
+            txtFrase.Location = new Point(546, 40);
             txtFrase.Name = "txtFrase";
             txtFrase.Size = new Size(242, 27);
             txtFrase.TabIndex = 23;
@@ -195,14 +177,14 @@
             Controls.Add(gBoxTipo);
             Controls.Add(txtFrase);
             Controls.Add(label7);
-            Controls.Add(txtRepite);
-            Controls.Add(label8);
             Controls.Add(numAltura);
             Controls.Add(label6);
             Controls.Add(numTiempoVuelo);
             Controls.Add(label5);
             Name = "FrmModificarLoro";
             Text = "FrmModificarLoro";
+            Load += FrmModificarLoro_Load;
+            Controls.SetChildIndex(numId, 0);
             Controls.SetChildIndex(txtNombre, 0);
             Controls.SetChildIndex(numEdad, 0);
             Controls.SetChildIndex(numPeso, 0);
@@ -213,14 +195,13 @@
             Controls.SetChildIndex(numTiempoVuelo, 0);
             Controls.SetChildIndex(label6, 0);
             Controls.SetChildIndex(numAltura, 0);
-            Controls.SetChildIndex(label8, 0);
-            Controls.SetChildIndex(txtRepite, 0);
             Controls.SetChildIndex(label7, 0);
             Controls.SetChildIndex(txtFrase, 0);
             Controls.SetChildIndex(gBoxTipo, 0);
             ((System.ComponentModel.ISupportInitialize)numEdad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numId).EndInit();
             ((System.ComponentModel.ISupportInitialize)numTiempoVuelo).EndInit();
             ((System.ComponentModel.ISupportInitialize)numAltura).EndInit();
             gBoxTipo.ResumeLayout(false);
@@ -235,8 +216,6 @@
         private NumericUpDown numTiempoVuelo;
         private Label label6;
         private NumericUpDown numAltura;
-        private Label label8;
-        private TextBox txtRepite;
         private Label label7;
         private TextBox txtFrase;
         private GroupBox gBoxTipo;

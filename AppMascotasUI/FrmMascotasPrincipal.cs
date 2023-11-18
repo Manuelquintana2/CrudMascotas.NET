@@ -61,9 +61,19 @@ namespace AppMascotasUI
         {
             List<Mascota> mascotas = new List<Mascota>();
             List<Perro> listaPerro = AccesoADatos.ObtenerListaPerro();
+            List<Gato> listaGato = AccesoADatos.ObtenerListaGato();
+            List<Loro> listaLoro = AccesoADatos.ObtenerListaLoro();
             foreach (Perro perro in listaPerro)
             {
                 mascotas.Add(perro);
+            }
+            foreach (Gato gato in listaGato)
+            {
+                mascotas.Add(gato);
+            }
+            foreach (Loro loro in listaLoro)
+            {
+                mascotas.Add(loro);
             }
             return mascotas;
         }
@@ -125,9 +135,9 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(this.usuarioLogueado.perfil == "vendedor")
+            if (this.usuarioLogueado.perfil == "vendedor")
             {
-                MessageBox.Show($"Error no puedes agregar mascotas, PERFIL: {usuarioLogueado.perfil}","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"Error no puedes agregar mascotas, PERFIL: {usuarioLogueado.perfil}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -235,7 +245,7 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(this.usuarioLogueado.perfil == "vendedor" || this.usuarioLogueado.perfil == "supervisor")
+            if (this.usuarioLogueado.perfil == "vendedor" || this.usuarioLogueado.perfil == "supervisor")
             {
                 MessageBox.Show($"Error no puedes eliminar mascotas, PERFIL: {usuarioLogueado.perfil}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -331,27 +341,43 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            string path = "mascotaFav.xml";
+            Mascota mascotaFav = ObtenerMascota();
+
             try
             {
-                SaveFileDialog guardar = new SaveFileDialog();
-                //guardarDatos.FileName = "./registro de jugadores.xml";
-
-                if (guardar.ShowDialog() == DialogResult.OK)
+                Serializadora<Mascota> serializarMascota = new Serializadora<Mascota>();
+                if (serializarMascota.Serializar(mascotaFav, path))
                 {
-                    string Path = guardar.FileName;
-                    using (XmlTextWriter escritorxml = new XmlTextWriter(Path, Encoding.UTF8))
-                    {
-                        XmlSerializer serializador = new XmlSerializer(typeof(List<Mascota>));
-                        serializador.Serialize(escritorxml, this.casa.mascotas);
-                        MessageBox.Show("Se guardaron los datos", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    MessageBox.Show("Se guardo la mascota favorita", "Exitos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error serializando", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
+                //XmlSerializer serializador = new XmlSerializer(typeof(List<Mascota>));
+                //serializador.Serialize(escritorxml, this.casa.mascotas);
+                //MessageBox.Show("Se guardaron los datos", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);  
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
+        }
+
+        private Mascota ObtenerMascota()
+        {
+            int indice;
+            indice = this.lstMascotas.SelectedIndex;
+
+            if (indice == -1)
+            {
+                MessageBox.Show("Error seleccione una mascota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            Mascota m = this.casa.mascotas[indice];
+            return m;
         }
         /// <summary>
         /// Abre el archivo con el registro de la lista de mascotas donde eligio el usuario y lo deserealiza
@@ -420,6 +446,14 @@ namespace AppMascotasUI
             }
             Mascota m = this.casa.mascotas[indice];
             MessageBox.Show(m.EmitirSonido(), "Sonido");
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            string path = "mascotaFav.xml";
+            Serializadora<Mascota> serializadora = new Serializadora<Mascota>();
+            Mascota mascotaFav = serializadora.Deserializar(path);
+            
         }
     }
 }

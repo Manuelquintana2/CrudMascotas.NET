@@ -33,6 +33,7 @@ namespace AppMascotasUI
             this.numPeso.Value = gato.Peso;
             this.numReaccion.Value = gato.VelocidadDeReaccion;
             this.numSalto.Value = gato.MetrosDeSalto;
+            this.numId.Value = gato.Id;
             ValidarRaza(gato);
         }
         /// <summary>

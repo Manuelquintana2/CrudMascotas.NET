@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using BaseDeDatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,7 +34,7 @@ namespace AppMascotasUI
             this.numAltura.Value = loro.MetrosDeVuelo;
             this.numTiempoVuelo.Value = loro.TiempoDeVuelo;
             this.txtFrase.Text = loro.Palabra;
-            AsignarTexto(loro);
+            this.numId.Value = loro.Id;
             ValidarTipo(loro);
         }
         /// <summary>
@@ -65,57 +66,8 @@ namespace AppMascotasUI
                 }
             }
         }
-        /// <summary>
-        /// Rellena el textbox segun si el loro pasado por parametro puede hablar o no
-        /// </summary>
-        /// <param name="loro"></param>
-        private void AsignarTexto(Loro loro)
-        {
-            if (loro.RepetirPalabras == true)
-            {
-                txtRepite.Text = "si";
-            }
-            else
-            {
-                txtRepite.Text = "no";
-            }
-        }
-        /// <summary>
-        /// Devuelve un booleano dependiendo si el loro sabe hablar "si" o no lo sabe "no"
-        /// </summary>
-        /// <returns></returns>
-        private bool VerificarSiRepitePalabras()
-        {
-            bool verificado = true;
-            if (txtRepite.Text == "si")
-            {
-                verificado = true;
-            }
-            else
-            {
-                verificado = false;
-            }
-            return verificado;
-        }
-        /// <summary>
-        /// Verifica que el usuario ingrese si o no
-        /// </summary>
-        /// <returns></returns>
-        private bool ValidarTexto()
-        {
-            bool retorno = false;
-            this.txtRepite.Text = this.txtRepite.Text.ToLower();
-            if (this.txtRepite.Text == "si" || this.txtRepite.Text == "no")
-            {
-                retorno = true;
-            }
-            else
-            {
-                MessageBox.Show("Ingrese: SI/NO");
-                retorno = false;
-            }
-            return retorno;
-        }
+
+
         /// <summary>
         /// Elimina el loro.
         /// </summary>
@@ -123,9 +75,8 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (this.ValidarTexto() && base.CargarForm())
+            if (base.CargarForm())
             {
-                bool repite = VerificarSiRepitePalabras();
                 string nombre = txtNombre.Text;
                 int edad = (int)numEdad.Value;
                 decimal peso = numPeso.Value;
@@ -133,27 +84,31 @@ namespace AppMascotasUI
                 int tiempoDeVuelo = (int)numTiempoVuelo.Value;
                 int metrosDeVuelo = (int)numAltura.Value;
                 string palabra = txtFrase.Text;
+                int id = (int)numId.Value;
 
                 if (rBtnAfricano.Checked)
                 {
-                    this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, repite, palabra);
+                    this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra, id);
+                    AccesoADatos.EliminarLoro(this.loro.Id);
                 }
                 else
                 {
                     if (rBtnAmazonico.Checked)
                     {
-                        this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, repite, palabra);
+                        this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, palabra, id);
+                        AccesoADatos.EliminarLoro(this.loro.Id);
                     }
                     else
                     {
                         if (rBtnEclecto.Checked)
                         {
-                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, repite, palabra);
+                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, palabra, id);
+                            AccesoADatos.EliminarLoro(this.loro.Id);
                         }
                         else
                         {
-
-                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, repite, palabra);
+                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, palabra, id);
+                            AccesoADatos.EliminarLoro(this.loro.Id);
                         }
                     }
                 }
@@ -161,10 +116,9 @@ namespace AppMascotasUI
             }
             else
             {
-                MessageBox.Show("Complete los campos","Cuidado");
+                MessageBox.Show("Complete los campos", "Cuidado");
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

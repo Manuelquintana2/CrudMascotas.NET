@@ -14,7 +14,6 @@ namespace Entidades
         private ETipoLoro tipo;
         private int tiempoDeVuelo;
         private int metrosDeVuelo;
-        private bool repetirPalabras;
         private string palabra;
 
         /// <summary>
@@ -23,8 +22,12 @@ namespace Entidades
         public ETipoLoro Tipo { get => tipo; set => tipo = value; }
         public int TiempoDeVuelo { get => tiempoDeVuelo; set => tiempoDeVuelo = value; }
         public int MetrosDeVuelo { get => metrosDeVuelo; set => metrosDeVuelo = value; }
-        public bool RepetirPalabras { get => repetirPalabras; set => repetirPalabras = value; }
         public string Palabra { get => palabra; set => palabra = value; }
+
+        public Loro(string nombre, int edad, decimal peso, int cantPatas, ETipoLoro tipo, int tiempoDeVuelo, int metrosDeVuelo, string palabra, int id):this(nombre, edad, peso, cantPatas, tipo, tiempoDeVuelo, metrosDeVuelo, palabra)
+        {
+            this.id = id;
+        }
 
         /// <summary>
         /// Constructor que recibe todos los parametros,llama a otro constructor
@@ -39,10 +42,9 @@ namespace Entidades
         /// <param name="metrosDeVuelo"></param>
         /// <param name="repetirPalabras"></param>
         /// <param name="palabra"></param>
-        public Loro(string nombre, int edad, decimal peso, int cantPatas, ETipoLoro tipo, int tiempoDeVuelo, int metrosDeVuelo, bool repetirPalabras, string palabra):this(nombre,edad,peso,cantPatas,tipo,tiempoDeVuelo)
+        public Loro(string nombre, int edad, decimal peso, int cantPatas, ETipoLoro tipo, int tiempoDeVuelo, int metrosDeVuelo, string palabra):this(nombre,edad,peso,cantPatas,tipo,tiempoDeVuelo)
         {
             this.MetrosDeVuelo = metrosDeVuelo;
-            this.RepetirPalabras = repetirPalabras;
             this.Palabra = palabra;
         }
         /// <summary>
@@ -69,7 +71,6 @@ namespace Entidades
             this.Tipo = 0;
             this.MetrosDeVuelo = 0;
             this.TiempoDeVuelo = 0;
-            this.RepetirPalabras = false;
             this.Palabra = "";
         }
         /// <summary>
@@ -101,7 +102,6 @@ namespace Entidades
             sb.AppendLine(base.ToString());
             sb.AppendLine($"Volo: {this.TiempoDeVuelo} semanas--");
             sb.AppendLine($"Vuela a: {this.MetrosDeVuelo} metros--");
-            sb.AppendLine($"Habla: {this.RepetirPalabras}--");
             sb.AppendLine($"Tipo {this.Tipo}");
 
             return sb.ToString();
@@ -111,12 +111,8 @@ namespace Entidades
         /// </summary>
         /// <returns></returns>
         public override string EmitirSonido()
-        {
-            if(this.RepetirPalabras)
-            {
-                return this.Palabra;
-            }
-            return "El loro no tiene la habilidad de repetir palabras";
+        {   
+            return this.Palabra;   
         }
     }
 }

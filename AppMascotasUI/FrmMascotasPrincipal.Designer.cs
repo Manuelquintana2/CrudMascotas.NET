@@ -47,6 +47,7 @@
             btnObtenerDatos = new Button();
             btnSonido = new Button();
             btnEmitirSonido = new Button();
+            btnMostrar = new Button();
             gBoxOrden.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,9 +56,9 @@
             lstMascotas.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
             lstMascotas.FormattingEnabled = true;
             lstMascotas.ItemHeight = 17;
-            lstMascotas.Location = new Point(12, 12);
+            lstMascotas.Location = new Point(12, 46);
             lstMascotas.Name = "lstMascotas";
-            lstMascotas.Size = new Size(785, 293);
+            lstMascotas.Size = new Size(785, 259);
             lstMascotas.TabIndex = 0;
             // 
             // btnAgregar
@@ -208,17 +209,17 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(991, 12);
+            btnGuardar.Location = new Point(12, 11);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(94, 29);
+            btnGuardar.Size = new Size(158, 29);
             btnGuardar.TabIndex = 9;
-            btnGuardar.Text = "Guardar";
+            btnGuardar.Text = "Guardar mascota fav";
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
             // btnObtenerDatos
             // 
-            btnObtenerDatos.Location = new Point(991, 47);
+            btnObtenerDatos.Location = new Point(981, 34);
             btnObtenerDatos.Name = "btnObtenerDatos";
             btnObtenerDatos.Size = new Size(94, 51);
             btnObtenerDatos.TabIndex = 10;
@@ -228,7 +229,7 @@
             // 
             // btnSonido
             // 
-            btnSonido.Location = new Point(952, 104);
+            btnSonido.Location = new Point(981, 104);
             btnSonido.Name = "btnSonido";
             btnSonido.Size = new Size(158, 62);
             btnSonido.TabIndex = 11;
@@ -246,12 +247,23 @@
             btnEmitirSonido.UseVisualStyleBackColor = true;
             btnEmitirSonido.Click += btnEmitirSonido_Click;
             // 
+            // btnMostrar
+            // 
+            btnMostrar.Location = new Point(243, 12);
+            btnMostrar.Name = "btnMostrar";
+            btnMostrar.Size = new Size(158, 29);
+            btnMostrar.TabIndex = 13;
+            btnMostrar.Text = "Mostrar mascota fav";
+            btnMostrar.UseVisualStyleBackColor = true;
+            btnMostrar.Click += btnMostrar_Click;
+            // 
             // FrmMascotasPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1122, 434);
+            ClientSize = new Size(1151, 434);
+            Controls.Add(btnMostrar);
             Controls.Add(btnEmitirSonido);
             Controls.Add(btnSonido);
             Controls.Add(btnObtenerDatos);
@@ -295,5 +307,6 @@
         private Button btnObtenerDatos;
         private Button btnSonido;
         private Button btnEmitirSonido;
+        private Button btnMostrar;
     }
 }

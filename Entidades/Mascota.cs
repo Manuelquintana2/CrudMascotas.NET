@@ -167,7 +167,7 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator ==(Mascota m, Mascota m2)
         {
-            return m.nombre == m2.nombre && m.peso == m2.peso;
+            return m.nombre == m2.nombre && m.peso == m2.peso;    
         }
         /// <summary>
         /// Sobrecarga necesaria para que no tire error de compilacion, niega el resultado de la comparacion

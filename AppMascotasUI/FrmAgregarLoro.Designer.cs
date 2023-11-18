@@ -49,8 +49,6 @@
             rBtnAfricano = new RadioButton();
             txtFrase = new TextBox();
             label7 = new Label();
-            label8 = new Label();
-            txtRepite = new TextBox();
             ((System.ComponentModel.ISupportInitialize)numEdad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPeso).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPatas).BeginInit();
@@ -249,7 +247,7 @@
             // 
             // txtFrase
             // 
-            txtFrase.Location = new Point(526, 101);
+            txtFrase.Location = new Point(525, 40);
             txtFrase.Name = "txtFrase";
             txtFrase.Size = new Size(242, 27);
             txtFrase.TabIndex = 17;
@@ -258,36 +256,17 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(562, 70);
+            label7.Location = new Point(567, 9);
             label7.Name = "label7";
             label7.Size = new Size(148, 28);
             label7.TabIndex = 18;
             label7.Text = "Frase a repetir";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(526, 9);
-            label8.Name = "label8";
-            label8.Size = new Size(233, 28);
-            label8.TabIndex = 19;
-            label8.Text = "¿Repite palabras? Si/no";
-            // 
-            // txtRepite
-            // 
-            txtRepite.Location = new Point(526, 40);
-            txtRepite.Name = "txtRepite";
-            txtRepite.Size = new Size(242, 27);
-            txtRepite.TabIndex = 20;
             // 
             // FrmAgregarLoro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(txtRepite);
-            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(txtFrase);
             Controls.Add(gBoxTipo);
@@ -341,7 +320,5 @@
         private RadioButton rBtnAfricano;
         private TextBox txtFrase;
         private Label label7;
-        private Label label8;
-        private TextBox txtRepite;
     }
 }

@@ -134,7 +134,7 @@
             // 
             // numId
             // 
-            numId.Location = new Point(532, 162);
+            numId.Location = new Point(532, 101);
             numId.Name = "numId";
             numId.Size = new Size(242, 27);
             numId.TabIndex = 17;
@@ -143,7 +143,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(584, 131);
+            label5.Location = new Point(583, 70);
             label5.Name = "label5";
             label5.Size = new Size(131, 28);
             label5.TabIndex = 18;

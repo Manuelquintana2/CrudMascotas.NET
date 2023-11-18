@@ -137,15 +137,15 @@
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblId.Location = new Point(650, 191);
+            lblId.Location = new Point(592, 70);
             lblId.Name = "lblId";
-            lblId.Size = new Size(30, 28);
+            lblId.Size = new Size(144, 28);
             lblId.TabIndex = 17;
-            lblId.Text = "Id";
+            lblId.Text = "Id a modificar";
             // 
             // numId
             // 
-            numId.Location = new Point(546, 223);
+            numId.Location = new Point(546, 101);
             numId.Name = "numId";
             numId.Size = new Size(242, 27);
             numId.TabIndex = 18;

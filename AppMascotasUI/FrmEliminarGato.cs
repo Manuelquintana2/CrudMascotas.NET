@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using BaseDeDatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,7 @@ namespace AppMascotasUI
             this.numPeso.Value = gato.Peso;
             this.numReaccion.Value = gato.VelocidadDeReaccion;
             this.numSalto.Value = gato.MetrosDeSalto;
+            this.numId.Value = gato.Id;
             ValidarRaza(gato);
         }
         /// <summary>
@@ -63,7 +65,6 @@ namespace AppMascotasUI
                 }
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -83,27 +84,31 @@ namespace AppMascotasUI
                 int cantPatas = (int)numPatas.Value;
                 int velocidadDeReaccion = (int)numReaccion.Value;
                 int metrosDeSalto = (int)numSalto.Value;
+                int id = (int)numId.Value;
 
                 if (rBtnBambino.Checked)
                 {
-                    this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                    this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino,id);
+                    AccesoADatos.EliminarGato(this.gato.Id);
                 }
                 else
                 {
                     if (rBtnBritanico.Checked)
                     {
-                        this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico);
+                        this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico,id);
+                        AccesoADatos.EliminarGato(this.gato.Id);
                     }
                     else
                     {
                         if (rBtnPersa.Checked)
                         {
-                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa);
+                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa,id);
+                            AccesoADatos.EliminarGato(this.gato.Id);
                         }
                         else
                         {
-
-                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames);
+                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames,id);
+                            AccesoADatos.EliminarGato(this.gato.Id);
                         }
                     }
                 }
@@ -113,6 +118,10 @@ namespace AppMascotasUI
             {
                 MessageBox.Show("Complete el nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        private void FrmEliminarGato_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
