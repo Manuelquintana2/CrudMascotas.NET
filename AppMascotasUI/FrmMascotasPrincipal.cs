@@ -453,7 +453,9 @@ namespace AppMascotasUI
             string path = "mascotaFav.xml";
             Serializadora<Mascota> serializadora = new Serializadora<Mascota>();
             Mascota mascotaFav = serializadora.Deserializar(path);
-            
+            MascotaFav frm = new MascotaFav(mascotaFav);
+            frm.ShowDialog();
+
         }
     }
 }
