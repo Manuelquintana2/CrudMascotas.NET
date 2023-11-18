@@ -89,26 +89,30 @@ namespace AppMascotasUI
                 if (rBtnBambino.Checked)
                 {
                     this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino,id);
-                    AccesoADatos.EliminarGato(this.gato.Id);
+                    AccesoADatosGato ado = new AccesoADatosGato();
+                    ado.Eliminar(this.gato.Id);
                 }
                 else
                 {
                     if (rBtnBritanico.Checked)
                     {
                         this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico,id);
-                        AccesoADatos.EliminarGato(this.gato.Id);
+                        AccesoADatosGato ado = new AccesoADatosGato();
+                        ado.Eliminar(this.gato.Id);
                     }
                     else
                     {
                         if (rBtnPersa.Checked)
                         {
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa,id);
-                            AccesoADatos.EliminarGato(this.gato.Id);
+                            AccesoADatosGato ado = new AccesoADatosGato();
+                            ado.Eliminar(this.gato.Id);
                         }
                         else
                         {
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames,id);
-                            AccesoADatos.EliminarGato(this.gato.Id);
+                            AccesoADatosGato ado = new AccesoADatosGato();
+                            ado.Eliminar(this.gato.Id);
                         }
                     }
                 }

@@ -56,14 +56,14 @@
             lstMascotas.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
             lstMascotas.FormattingEnabled = true;
             lstMascotas.ItemHeight = 17;
-            lstMascotas.Location = new Point(12, 46);
+            lstMascotas.Location = new Point(12, 198);
             lstMascotas.Name = "lstMascotas";
             lstMascotas.Size = new Size(785, 259);
             lstMascotas.TabIndex = 0;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(12, 347);
+            btnAgregar.Location = new Point(12, 502);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(130, 62);
             btnAgregar.TabIndex = 1;
@@ -73,7 +73,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(335, 347);
+            btnModificar.Location = new Point(336, 502);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(130, 62);
             btnModificar.TabIndex = 3;
@@ -83,7 +83,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(667, 347);
+            btnEliminar.Location = new Point(667, 502);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(130, 62);
             btnEliminar.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             lblUsuario.AutoSize = true;
             lblUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUsuario.Location = new Point(803, 18);
+            lblUsuario.Location = new Point(846, 13);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(182, 28);
             lblUsuario.TabIndex = 5;
@@ -104,14 +104,14 @@
             // lblArchivo
             // 
             lblArchivo.AutoSize = true;
-            lblArchivo.Location = new Point(803, 65);
+            lblArchivo.Location = new Point(846, 71);
             lblArchivo.Name = "lblArchivo";
             lblArchivo.Size = new Size(0, 20);
             lblArchivo.TabIndex = 6;
             // 
             // btnUsuarios
             // 
-            btnUsuarios.Location = new Point(852, 347);
+            btnUsuarios.Location = new Point(860, 502);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.Size = new Size(130, 62);
             btnUsuarios.TabIndex = 7;
@@ -128,7 +128,7 @@
             gBoxOrden.Controls.Add(rBtnDescendenteEdad);
             gBoxOrden.Controls.Add(rBtnAscendenteEdad);
             gBoxOrden.Controls.Add(label1);
-            gBoxOrden.Location = new Point(802, 172);
+            gBoxOrden.Location = new Point(860, 308);
             gBoxOrden.Name = "gBoxOrden";
             gBoxOrden.Size = new Size(283, 169);
             gBoxOrden.TabIndex = 8;
@@ -209,7 +209,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(12, 11);
+            btnGuardar.Location = new Point(18, 16);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(158, 29);
             btnGuardar.TabIndex = 9;
@@ -219,7 +219,7 @@
             // 
             // btnObtenerDatos
             // 
-            btnObtenerDatos.Location = new Point(981, 34);
+            btnObtenerDatos.Location = new Point(1049, 5);
             btnObtenerDatos.Name = "btnObtenerDatos";
             btnObtenerDatos.Size = new Size(94, 51);
             btnObtenerDatos.TabIndex = 10;
@@ -229,7 +229,7 @@
             // 
             // btnSonido
             // 
-            btnSonido.Location = new Point(981, 104);
+            btnSonido.Location = new Point(445, 13);
             btnSonido.Name = "btnSonido";
             btnSonido.Size = new Size(158, 62);
             btnSonido.TabIndex = 11;
@@ -239,7 +239,7 @@
             // 
             // btnEmitirSonido
             // 
-            btnEmitirSonido.Location = new Point(991, 347);
+            btnEmitirSonido.Location = new Point(1034, 502);
             btnEmitirSonido.Name = "btnEmitirSonido";
             btnEmitirSonido.Size = new Size(105, 62);
             btnEmitirSonido.TabIndex = 12;
@@ -249,7 +249,7 @@
             // 
             // btnMostrar
             // 
-            btnMostrar.Location = new Point(243, 12);
+            btnMostrar.Location = new Point(228, 13);
             btnMostrar.Name = "btnMostrar";
             btnMostrar.Size = new Size(158, 29);
             btnMostrar.TabIndex = 13;
@@ -262,7 +262,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1151, 434);
+            ClientSize = new Size(1151, 587);
             Controls.Add(btnMostrar);
             Controls.Add(btnEmitirSonido);
             Controls.Add(btnSonido);

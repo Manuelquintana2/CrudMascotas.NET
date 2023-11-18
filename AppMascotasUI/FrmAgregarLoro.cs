@@ -39,26 +39,30 @@ namespace AppMascotasUI
                 if (rBtnAfricano.Checked)
                 {
                     this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
-                    AccesoADatos.agregarLoro(this.loro);
+                    AccesoADatosLoro ado = new AccesoADatosLoro();
+                    ado.Agregar(this.loro);
                 }
                 else
                 {
                     if (rBtnAmazonico.Checked)
                     {
                         this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, palabra);
-                        AccesoADatos.agregarLoro(this.loro);
+                        AccesoADatosLoro ado = new AccesoADatosLoro();
+                        ado.Agregar(this.loro);
                     }
                     else
                     {
                         if (rBtnEclecto.Checked)
                         {
                             this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, palabra);
-                            AccesoADatos.agregarLoro(this.loro);
+                            AccesoADatosLoro ado = new AccesoADatosLoro();
+                            ado.Agregar(this.loro);
                         }
                         else
                         {
                             this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, palabra);
-                            AccesoADatos.agregarLoro(this.loro);
+                            AccesoADatosLoro ado = new AccesoADatosLoro();
+                            ado.Agregar(this.loro);
                         }
                     }
                 }

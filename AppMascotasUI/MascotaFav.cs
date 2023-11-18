@@ -43,10 +43,10 @@ namespace AppMascotasUI
             }
         }
         private void AsignarTexto()
-        {
+        {   
             label1.Text = "Mi nombre es "+ this.mascota.Nombre;
-            label2.Text = "Tengo "+this.mascota.Edad.ToString() + "Años";
-            label4.Text = this.mascota.EmitirSonido();
+            label2.Text = "Tengo "+this.mascota.Edad.ToString() + " Años";
+            label4.Text = this.mascota.EmitirSonido(); 
         }
 
         private void MascotaFav_Load(object sender, EventArgs e)

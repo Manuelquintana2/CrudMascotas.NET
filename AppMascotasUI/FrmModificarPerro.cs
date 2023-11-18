@@ -87,26 +87,30 @@ namespace AppMascotasUI
                 if (rBtnGalgo.Checked)
                 {
                     this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer, id);
-                    AccesoADatos.modificarPerro(this.perro);
+                    AccesoADatosPerro ado = new AccesoADatosPerro();
+                    ado.Modificar(this.perro);
                 }
                 else
                 {
                     if (rBtnPitbull.Checked)
                     {
                         this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer,id);
-                        AccesoADatos.modificarPerro(this.perro);
+                        AccesoADatosPerro ado = new AccesoADatosPerro();
+                        ado.Modificar(this.perro);
                     }
                     else
                     {
                         if (rBtnDooberman.Checked)
                         {
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer,id);
-                            AccesoADatos.modificarPerro(this.perro);
+                            AccesoADatosPerro ado = new AccesoADatosPerro();
+                            ado.Modificar(this.perro);
                         }
                         else
                         {
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer, id);
-                            AccesoADatos.modificarPerro(this.perro);
+                            AccesoADatosPerro ado = new AccesoADatosPerro();
+                            ado.Modificar(this.perro);
                         }
                     }
                 }

@@ -42,21 +42,13 @@ namespace Entidades
         public T Deserializar(string path)
         {
             T aux = default(T);
-            try
+
+            using (XmlTextReader reader = new XmlTextReader(Serializadora<T>.path + path))
             {
-                using (XmlTextReader reader = new XmlTextReader(Serializadora<T>.path + path))
-                {
-                    XmlSerializer ser = new XmlSerializer(typeof(T));
+                XmlSerializer ser = new XmlSerializer(typeof(T));
 
-                    aux = (T)ser.Deserialize(reader);
-                }
-
+                aux = (T)ser.Deserialize(reader);
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
             return aux;
         }
     }

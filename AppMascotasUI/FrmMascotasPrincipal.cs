@@ -31,6 +31,9 @@ namespace AppMascotasUI
         public FrmMascotasPrincipal()
         {
             InitializeComponent();
+            Bitmap img = new Bitmap(Application.StartupPath + "./fondo.jpg");
+            this.BackgroundImage = img;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             this.mascotas = new List<Mascota>();
             this.fecha = DateTime.Now.ToShortDateString();
         }
@@ -60,9 +63,12 @@ namespace AppMascotasUI
         private List<Mascota> FusionarListas()
         {
             List<Mascota> mascotas = new List<Mascota>();
-            List<Perro> listaPerro = AccesoADatos.ObtenerListaPerro();
-            List<Gato> listaGato = AccesoADatos.ObtenerListaGato();
-            List<Loro> listaLoro = AccesoADatos.ObtenerListaLoro();
+            AccesoADatosPerro adoPerro = new AccesoADatosPerro();
+            AccesoADatosLoro adoLoro = new AccesoADatosLoro();
+            AccesoADatosGato adoGato = new AccesoADatosGato();
+            List<Perro> listaPerro = adoPerro.ObtenerLista();
+            List<Gato> listaGato = adoGato.ObtenerLista();
+            List<Loro> listaLoro = adoLoro.ObtenerLista();
             foreach (Perro perro in listaPerro)
             {
                 mascotas.Add(perro);
@@ -346,19 +352,26 @@ namespace AppMascotasUI
 
             try
             {
-                Serializadora<Mascota> serializarMascota = new Serializadora<Mascota>();
-                if (serializarMascota.Serializar(mascotaFav, path))
+                if (mascotaFav == null)
                 {
-                    MessageBox.Show("Se guardo la mascota favorita", "Exitos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No hay mascotas guardadas", "Cuidado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Error serializando", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                    Serializadora<Mascota> serializarMascota = new Serializadora<Mascota>();
+                    if (serializarMascota.Serializar(mascotaFav, path))
+                    {
+                        MessageBox.Show("Se guardo la mascota favorita", "Exitos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error serializando", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    //XmlSerializer serializador = new XmlSerializer(typeof(List<Mascota>));
+                    //serializador.Serialize(escritorxml, this.casa.mascotas);
+                    //MessageBox.Show("Se guardaron los datos", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);  
 
-                //XmlSerializer serializador = new XmlSerializer(typeof(List<Mascota>));
-                //serializador.Serialize(escritorxml, this.casa.mascotas);
-                //MessageBox.Show("Se guardaron los datos", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);  
+                }
             }
             catch (Exception ex)
             {
@@ -451,10 +464,17 @@ namespace AppMascotasUI
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             string path = "mascotaFav.xml";
-            Serializadora<Mascota> serializadora = new Serializadora<Mascota>();
-            Mascota mascotaFav = serializadora.Deserializar(path);
-            MascotaFav frm = new MascotaFav(mascotaFav);
-            frm.ShowDialog();
+            try
+            {
+                Serializadora<Mascota> serializadora = new Serializadora<Mascota>();
+                Mascota mascotaFav = serializadora.Deserializar(path);
+                MascotaFav frm = new MascotaFav(mascotaFav);
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se encontro una mascota guardada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
     }
