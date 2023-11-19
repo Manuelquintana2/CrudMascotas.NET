@@ -120,10 +120,17 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void FrmMascotasPrincipal_Load(object sender, EventArgs e)
         {
-            lblArchivo.Text = $"Nombre: {this.usuarioLogueado.nombre} {Environment.NewLine}" +
+            this.label1.BackColor = Color.Transparent;
+            this.label2.BackColor = Color.Transparent;
+            this.lblArchivo.BackColor = Color.Transparent;
+            this.lblHora.BackColor = Color.Transparent;
+            this.lblUsuario.BackColor = Color.Transparent;
+            this.gBoxOrden.BackColor = Color.Transparent;
+            this.lblArchivo.Text = $"Nombre: {this.usuarioLogueado.nombre} {Environment.NewLine}" +
                 $"Apellido: {this.usuarioLogueado.apellido} {Environment.NewLine}" +
                 $"Fecha: {this.fecha}";
             Task t1 = Task.Run(() => { this.BucleTiempo(); });
+
 
         }
         /// <summary>

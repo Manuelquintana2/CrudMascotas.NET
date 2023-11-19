@@ -105,9 +105,10 @@
             // lblArchivo
             // 
             lblArchivo.AutoSize = true;
-            lblArchivo.Location = new Point(846, 71);
+            lblArchivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblArchivo.Location = new Point(860, 71);
             lblArchivo.Name = "lblArchivo";
-            lblArchivo.Size = new Size(0, 20);
+            lblArchivo.Size = new Size(0, 28);
             lblArchivo.TabIndex = 6;
             // 
             // btnUsuarios
@@ -129,7 +130,7 @@
             gBoxOrden.Controls.Add(rBtnDescendenteEdad);
             gBoxOrden.Controls.Add(rBtnAscendenteEdad);
             gBoxOrden.Controls.Add(label1);
-            gBoxOrden.Location = new Point(860, 308);
+            gBoxOrden.Location = new Point(860, 288);
             gBoxOrden.Name = "gBoxOrden";
             gBoxOrden.Size = new Size(283, 169);
             gBoxOrden.TabIndex = 8;

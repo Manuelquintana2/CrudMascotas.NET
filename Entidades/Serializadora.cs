@@ -25,7 +25,6 @@ namespace Entidades
                 using (XmlTextWriter writer = new XmlTextWriter(Serializadora<T>.path + path, System.Text.Encoding.UTF8))
                 {
                     XmlSerializer ser = new XmlSerializer(typeof(T));
-
                     ser.Serialize(writer, dato);
                     seSerializo = true;
                 }
@@ -33,7 +32,6 @@ namespace Entidades
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e.Message);
             }
 

@@ -89,6 +89,17 @@ namespace Entidades
         /// <returns>Retorna un string con el tipo de Mascota y su edad </returns>
         public virtual string TipoDeMascota(int edad)
         {
+            if (edad > 30)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                if(edad < 0)
+                {
+                    return null;
+                }
+            }
             return $"Soy un loro con {this.Edad} años";
         }
         /// <summary>
