@@ -416,7 +416,6 @@ namespace AppMascotasUI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
         }
-
         private Mascota ObtenerMascota()
         {
             int indice;
@@ -470,15 +469,15 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnSonido_Click(object sender, EventArgs e)
         {
-            int indice;
-            indice = this.lstMascotas.SelectedIndex;
-
-            if (indice == -1)
+            Mascota m = ObtenerMascota();
+            if (m == null)
             {
                 return;
             }
-            Mascota m = this.casa.mascotas[indice];
-            MessageBox.Show(m.TipoDeMascota(), "Tipo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {      
+                MessageBox.Show(m.TipoDeMascota(), "Tipo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         /// <summary>
         /// Segun el animal que selecciones, te emitira un sonido,
@@ -488,32 +487,32 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void btnEmitirSonido_Click(object sender, EventArgs e)
         {
-            int indice;
-            indice = this.lstMascotas.SelectedIndex;
-
-            if (indice == -1)
+            Mascota m = ObtenerMascota();
+            if(m == null)
             {
                 return;
             }
-            Mascota m = this.casa.mascotas[indice];
-            MessageBox.Show(m.EmitirSonido(), "Sonido");
+            else
+            {
+                MessageBox.Show(m.EmitirSonido(), "Sonido");
+            }
         }
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             string path = "mascotaFav.xml";
-            try
-            {
+            
                 Serializadora<Mascota> serializadora = new Serializadora<Mascota>();
                 Mascota mascotaFav = serializadora.Deserializar(path);
-                MascotaFav frm = new MascotaFav(mascotaFav);
-                frm.ShowDialog();
-            }
-            catch (Exception ex)
+            if (mascotaFav == null)
             {
                 MessageBox.Show("No se encontro una mascota guardada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
+            else
+            {
+                MascotaFav frm = new MascotaFav(mascotaFav);
+                frm.ShowDialog();
+            }
         }
     }
 }

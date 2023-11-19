@@ -27,12 +27,12 @@ namespace Pruebas
         {
             //Arrange
             Serializadora<Perro> serilizadora = new Serializadora<Perro>();
-            FileNotFoundException excepcion = new FileNotFoundException();
+
             //Act
             Perro resultado = serilizadora.Deserializar("dasdsa");
 
             //Assert
-            Assert.AreEqual(excepcion, resultado);
+            Assert.IsNull(resultado);
         }
     }
 }
