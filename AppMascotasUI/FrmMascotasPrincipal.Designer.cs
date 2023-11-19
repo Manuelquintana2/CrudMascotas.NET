@@ -48,6 +48,7 @@
             btnSonido = new Button();
             btnEmitirSonido = new Button();
             btnMostrar = new Button();
+            lblHora = new Label();
             gBoxOrden.SuspendLayout();
             SuspendLayout();
             // 
@@ -257,12 +258,23 @@
             btnMostrar.UseVisualStyleBackColor = true;
             btnMostrar.Click += btnMostrar_Click;
             // 
+            // lblHora
+            // 
+            lblHora.AutoSize = true;
+            lblHora.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblHora.Location = new Point(618, 13);
+            lblHora.Name = "lblHora";
+            lblHora.Size = new Size(65, 28);
+            lblHora.TabIndex = 14;
+            lblHora.Text = "label3";
+            // 
             // FrmMascotasPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(1151, 587);
+            Controls.Add(lblHora);
             Controls.Add(btnMostrar);
             Controls.Add(btnEmitirSonido);
             Controls.Add(btnSonido);
@@ -308,5 +320,6 @@
         private Button btnSonido;
         private Button btnEmitirSonido;
         private Button btnMostrar;
+        private Label lblHora;
     }
 }

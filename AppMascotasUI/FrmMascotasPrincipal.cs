@@ -15,6 +15,7 @@ using Microsoft.Win32;
 
 namespace AppMascotasUI
 {
+    public delegate void DelegadoActualizar(DateTime fecha);
     public partial class FrmMascotasPrincipal : Form
     {
         /// <summary>
@@ -24,6 +25,8 @@ namespace AppMascotasUI
         private Usuario usuarioLogueado;
         private string fecha;
         private Casa casa;
+        private CancellationToken cancelarFlujo;
+        private CancellationTokenSource fuenteDeCancelacion;
         /// <summary>
         /// Inicializa la lista de mascotas
         /// inicializa la fecha con el formato corto
@@ -36,6 +39,8 @@ namespace AppMascotasUI
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.mascotas = new List<Mascota>();
             this.fecha = DateTime.Now.ToShortDateString();
+            this.fuenteDeCancelacion = new CancellationTokenSource();
+            this.cancelarFlujo = this.fuenteDeCancelacion.Token;
         }
         /// <summary>
         /// Constructor que recibe el Usuario que se logueo actualmente
@@ -59,28 +64,53 @@ namespace AppMascotasUI
                 lstMascotas.Items.Add(mascota.ToString());
             }
         }
+        private void BucleTiempo()
+        {
+            do
+            {
+                if (this.cancelarFlujo.IsCancellationRequested) break;
 
-        private List<Mascota> FusionarListas()
+                this.ActualizarFecha(DateTime.Now);
+                Thread.Sleep(1000);
+            } while (true);
+        }
+        private void ActualizarFecha(DateTime fecha)
+        {
+            if (this.lblHora.InvokeRequired)
+            {
+                DelegadoActualizar d = new DelegadoActualizar(ActualizarFecha);
+                object[] arrayParametro = { fecha };
+
+                this.lblHora.Invoke(d, arrayParametro); // -> para invocar al hilo principal, tenes que 
+                                                        //    hacerlo desde un control creado en el hilo main
+            }
+            else this.lblHora.Text = fecha.ToString();
+        }
+        private async Task<List<Mascota>> FusionarListas()
         {
             List<Mascota> mascotas = new List<Mascota>();
-            AccesoADatosPerro adoPerro = new AccesoADatosPerro();
-            AccesoADatosLoro adoLoro = new AccesoADatosLoro();
-            AccesoADatosGato adoGato = new AccesoADatosGato();
-            List<Perro> listaPerro = adoPerro.ObtenerLista();
-            List<Gato> listaGato = adoGato.ObtenerLista();
-            List<Loro> listaLoro = adoLoro.ObtenerLista();
-            foreach (Perro perro in listaPerro)
+            mascotas = await Task.Run(() =>
             {
-                mascotas.Add(perro);
-            }
-            foreach (Gato gato in listaGato)
-            {
-                mascotas.Add(gato);
-            }
-            foreach (Loro loro in listaLoro)
-            {
-                mascotas.Add(loro);
-            }
+                AccesoADatosPerro adoPerro = new AccesoADatosPerro();
+                AccesoADatosLoro adoLoro = new AccesoADatosLoro();
+                AccesoADatosGato adoGato = new AccesoADatosGato();
+                List<Perro> listaPerro = adoPerro.ObtenerLista();
+                List<Gato> listaGato = adoGato.ObtenerLista();
+                List<Loro> listaLoro = adoLoro.ObtenerLista();
+                foreach (Perro perro in listaPerro)
+                {
+                    mascotas.Add(perro);
+                }
+                foreach (Gato gato in listaGato)
+                {
+                    mascotas.Add(gato);
+                }
+                foreach (Loro loro in listaLoro)
+                {
+                    mascotas.Add(loro);
+                }
+                return mascotas;
+            });
             return mascotas;
         }
         /// <summary>
@@ -93,6 +123,7 @@ namespace AppMascotasUI
             lblArchivo.Text = $"Nombre: {this.usuarioLogueado.nombre} {Environment.NewLine}" +
                 $"Apellido: {this.usuarioLogueado.apellido} {Environment.NewLine}" +
                 $"Fecha: {this.fecha}";
+            Task t1 = Task.Run(() => { this.BucleTiempo(); });
 
         }
         /// <summary>
@@ -398,9 +429,9 @@ namespace AppMascotasUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnObtenerDatos_Click(object sender, EventArgs e)
+        private async void btnObtenerDatos_Click(object sender, EventArgs e)
         {
-            this.casa.mascotas = FusionarListas();
+            this.casa.mascotas = await this.FusionarListas();
             this.ActualizarVisor();
             //OpenFileDialog frm = new OpenFileDialog();
 
