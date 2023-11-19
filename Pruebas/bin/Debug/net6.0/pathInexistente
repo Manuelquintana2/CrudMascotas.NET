@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Perro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><Id>0</Id><Nombre /><Edad>0</Edad><Peso>0</Peso><CantPatas>0</CantPatas><KilometrosPorHora>0</KilometrosPorHora><VelocidadParaComer>0</VelocidadParaComer><Raza>Galgo</Raza></Perro>
