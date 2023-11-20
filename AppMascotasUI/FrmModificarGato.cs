@@ -92,7 +92,14 @@ namespace AppMascotasUI
                 {
                     this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino,id);
                     AccesoADatosGato ado = new AccesoADatosGato();
-                    ado.Modificar(this.gato);
+                    try
+                    {
+                        ado.Modificar(this.gato);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudo modificar: " + ex.Message);
+                    }
                 }
                 else
                 {
@@ -100,7 +107,14 @@ namespace AppMascotasUI
                     {
                         this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico,id);
                         AccesoADatosGato ado = new AccesoADatosGato();
-                        ado.Modificar(this.gato);
+                        try
+                        {
+                            ado.Modificar(this.gato);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se pudo modificar: " + ex.Message);
+                        }
                     }
                     else
                     {
@@ -108,13 +122,27 @@ namespace AppMascotasUI
                         {
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa, id);
                             AccesoADatosGato ado = new AccesoADatosGato();
-                            ado.Modificar(this.gato);
+                            try
+                            {
+                                ado.Modificar(this.gato);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo modificar: " + ex.Message);
+                            }
                         }
                         else
                         {
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames, id);
                             AccesoADatosGato ado = new AccesoADatosGato();
-                            ado.Modificar(this.gato);
+                            try
+                            {
+                                ado.Modificar(this.gato);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo modificar: " + ex.Message);
+                            }
                         }
                     }
                 }

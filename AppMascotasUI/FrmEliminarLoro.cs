@@ -90,7 +90,14 @@ namespace AppMascotasUI
                 {
                     this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra, id);
                     AccesoADatosLoro ado = new AccesoADatosLoro();
-                    ado.Eliminar(this.loro.Id);
+                    try
+                    {
+                        ado.Eliminar(this.loro.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                    }
                 }
                 else
                 {
@@ -98,7 +105,14 @@ namespace AppMascotasUI
                     {
                         this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, palabra, id);
                         AccesoADatosLoro ado = new AccesoADatosLoro();
-                        ado.Eliminar(this.loro.Id);
+                        try
+                        {
+                            ado.Eliminar(this.loro.Id);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                        }
                     }
                     else
                     {
@@ -106,13 +120,27 @@ namespace AppMascotasUI
                         {
                             this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, palabra, id);
                             AccesoADatosLoro ado = new AccesoADatosLoro();
-                            ado.Eliminar(this.loro.Id);
+                            try
+                            {
+                                ado.Eliminar(this.loro.Id);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                            }
                         }
                         else
                         {
                             this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, palabra, id);
                             AccesoADatosLoro ado = new AccesoADatosLoro();
-                            ado.Eliminar(this.loro.Id);
+                            try
+                            {
+                                ado.Eliminar(this.loro.Id);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                            }
                         }
                     }
                 }

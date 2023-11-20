@@ -40,7 +40,14 @@ namespace AppMascotasUI
                 {
                     this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
                     AccesoADatosLoro ado = new AccesoADatosLoro();
-                    ado.Agregar(this.loro);
+                    try
+                    {
+                        ado.Agregar(this.loro);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("No se pudo agregar: " + ex.Message);
+                    }
                 }
                 else
                 {
@@ -48,7 +55,14 @@ namespace AppMascotasUI
                     {
                         this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, palabra);
                         AccesoADatosLoro ado = new AccesoADatosLoro();
-                        ado.Agregar(this.loro);
+                        try
+                        {
+                            ado.Agregar(this.loro);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se pudo agregar: " + ex.Message);
+                        }
                     }
                     else
                     {
@@ -56,13 +70,27 @@ namespace AppMascotasUI
                         {
                             this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, palabra);
                             AccesoADatosLoro ado = new AccesoADatosLoro();
-                            ado.Agregar(this.loro);
+                            try
+                            {
+                                ado.Agregar(this.loro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo agregar: " + ex.Message);
+                            }
                         }
                         else
                         {
                             this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, palabra);
                             AccesoADatosLoro ado = new AccesoADatosLoro();
-                            ado.Agregar(this.loro);
+                            try
+                            {
+                                ado.Agregar(this.loro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo agregar: " + ex.Message);
+                            }
                         }
                     }
                 }

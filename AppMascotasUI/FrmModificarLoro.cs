@@ -91,7 +91,14 @@ namespace AppMascotasUI
                 {
                     this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra, id);
                     AccesoADatosLoro ado = new AccesoADatosLoro();
-                    ado.Modificar(this.loro);
+                    try
+                    {
+                        ado.Modificar(this.loro);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudo modificar: " + ex.Message);
+                    }
                 }
                 else
                 {
@@ -99,7 +106,14 @@ namespace AppMascotasUI
                     {
                         this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, palabra, id);
                         AccesoADatosLoro ado = new AccesoADatosLoro();
-                        ado.Modificar(this.loro);
+                        try
+                        {
+                            ado.Modificar(this.loro);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se pudo modificar: " + ex.Message);
+                        }
                     }
                     else
                     {
@@ -107,13 +121,27 @@ namespace AppMascotasUI
                         {
                             this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, palabra, id);
                             AccesoADatosLoro ado = new AccesoADatosLoro();
-                            ado.Modificar(this.loro);
+                            try
+                            {
+                                ado.Modificar(this.loro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo modificar: " + ex.Message);
+                            }
                         }
                         else
                         {
                             this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, palabra, id);
                             AccesoADatosLoro ado = new AccesoADatosLoro();
-                            ado.Modificar(this.loro);
+                            try
+                            {
+                                ado.Modificar(this.loro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo modificar: " + ex.Message);
+                            }
                         }
                     }
                 }

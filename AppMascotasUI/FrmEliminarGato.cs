@@ -90,7 +90,14 @@ namespace AppMascotasUI
                 {
                     this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino,id);
                     AccesoADatosGato ado = new AccesoADatosGato();
-                    ado.Eliminar(this.gato.Id);
+                    try
+                    {
+                        ado.Eliminar(this.gato.Id);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                    }
                 }
                 else
                 {
@@ -98,7 +105,14 @@ namespace AppMascotasUI
                     {
                         this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico,id);
                         AccesoADatosGato ado = new AccesoADatosGato();
-                        ado.Eliminar(this.gato.Id);
+                        try
+                        {
+                            ado.Eliminar(this.gato.Id);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                        }
                     }
                     else
                     {
@@ -106,13 +120,27 @@ namespace AppMascotasUI
                         {
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa,id);
                             AccesoADatosGato ado = new AccesoADatosGato();
-                            ado.Eliminar(this.gato.Id);
+                            try
+                            {
+                                ado.Eliminar(this.gato.Id);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                            }
                         }
                         else
                         {
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames,id);
                             AccesoADatosGato ado = new AccesoADatosGato();
-                            ado.Eliminar(this.gato.Id);
+                            try
+                            {
+                                ado.Eliminar(this.gato.Id);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                            }
                         }
                     }
                 }

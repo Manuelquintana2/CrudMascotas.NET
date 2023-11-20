@@ -87,7 +87,14 @@ namespace AppMascotasUI
                 {
                     this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer,id);
                     AccesoADatosPerro ado = new AccesoADatosPerro();
-                    ado.Eliminar(this.perro.Id);
+                    try
+                    {
+                        ado.Eliminar(this.perro.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                    }
                 }
                 else
                 {
@@ -95,7 +102,14 @@ namespace AppMascotasUI
                     {
                         this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer,id);
                         AccesoADatosPerro ado = new AccesoADatosPerro();
-                        ado.Eliminar(this.perro.Id);
+                        try
+                        {
+                            ado.Eliminar(this.perro.Id);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                        }
                     }
                     else
                     {
@@ -103,13 +117,27 @@ namespace AppMascotasUI
                         {
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer,id);
                             AccesoADatosPerro ado = new AccesoADatosPerro();
-                            ado.Eliminar(this.perro.Id);
+                            try
+                            {
+                                ado.Eliminar(this.perro.Id);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                            }
                         }
                         else
                         {
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer, id);
                             AccesoADatosPerro ado = new AccesoADatosPerro();
-                            ado.Eliminar(this.perro.Id);
+                            try
+                            {
+                                ado.Eliminar(this.perro.Id);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo eliminar: " + ex.Message);
+                            }
                         }
                     }
                 }

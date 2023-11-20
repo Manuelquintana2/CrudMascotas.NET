@@ -88,7 +88,14 @@ namespace AppMascotasUI
                 {
                     this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer, id);
                     AccesoADatosPerro ado = new AccesoADatosPerro();
-                    ado.Modificar(this.perro);
+                    try
+                    {
+                        ado.Modificar(this.perro);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudo modificar: " + ex.Message);
+                    }
                 }
                 else
                 {
@@ -96,7 +103,14 @@ namespace AppMascotasUI
                     {
                         this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer,id);
                         AccesoADatosPerro ado = new AccesoADatosPerro();
-                        ado.Modificar(this.perro);
+                        try
+                        {
+                            ado.Modificar(this.perro);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se pudo modificar: " + ex.Message);
+                        }
                     }
                     else
                     {
@@ -104,13 +118,27 @@ namespace AppMascotasUI
                         {
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer,id);
                             AccesoADatosPerro ado = new AccesoADatosPerro();
-                            ado.Modificar(this.perro);
+                            try
+                            {
+                                ado.Modificar(this.perro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo modificar: " + ex.Message);
+                            }
                         }
                         else
                         {
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer, id);
                             AccesoADatosPerro ado = new AccesoADatosPerro();
-                            ado.Modificar(this.perro);
+                            try
+                            {
+                                ado.Modificar(this.perro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo modificar: " + ex.Message);
+                            }
                         }
                     }
                 }

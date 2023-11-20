@@ -37,9 +37,13 @@ namespace AppMascotasUI
                     this.listasUsuario = (List<Usuario>)JsonSerializer.Deserialize(json_str, typeof(List<Usuario>));
                 }
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Error no se encontro el archivo");
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}");
             }
 
         }

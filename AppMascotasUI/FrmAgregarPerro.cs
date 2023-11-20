@@ -39,7 +39,14 @@ namespace AppMascotasUI
                 {
                     this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
                     AccesoADatosPerro ado = new AccesoADatosPerro();
-                    ado.Agregar(this.perro);
+                    try
+                    {
+                        ado.Agregar(this.perro);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error agregando perro: " +ex.Message);
+                    }
                 }
                 else
                 {
@@ -47,7 +54,14 @@ namespace AppMascotasUI
                     {
                         this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer);
                         AccesoADatosPerro ado = new AccesoADatosPerro();
-                        ado.Agregar(this.perro);
+                        try
+                        {
+                            ado.Agregar(this.perro);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error agregando perro: " + ex.Message);
+                        }
                     }
                     else
                     {
@@ -55,14 +69,27 @@ namespace AppMascotasUI
                         {
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer);
                             AccesoADatosPerro ado = new AccesoADatosPerro();
-                            ado.Agregar(this.perro);
+                            try
+                            {
+                                ado.Agregar(this.perro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error agregando perro: " + ex.Message);
+                            }
                         }
                         else
                         {
-
                             this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer);
                             AccesoADatosPerro ado = new AccesoADatosPerro();
-                            ado.Agregar(this.perro);
+                            try
+                            {
+                                ado.Agregar(this.perro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error agregando perro: " + ex.Message);
+                            }
                         }
                     }
                 }

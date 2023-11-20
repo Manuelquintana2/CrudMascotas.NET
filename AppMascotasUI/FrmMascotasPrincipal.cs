@@ -89,28 +89,37 @@ namespace AppMascotasUI
         private async Task<List<Mascota>> FusionarListas()
         {
             List<Mascota> mascotas = new List<Mascota>();
-            mascotas = await Task.Run(() =>
+            try
             {
-                AccesoADatosPerro adoPerro = new AccesoADatosPerro();
-                AccesoADatosLoro adoLoro = new AccesoADatosLoro();
-                AccesoADatosGato adoGato = new AccesoADatosGato();
-                List<Perro> listaPerro = adoPerro.ObtenerLista();
-                List<Gato> listaGato = adoGato.ObtenerLista();
-                List<Loro> listaLoro = adoLoro.ObtenerLista();
-                foreach (Perro perro in listaPerro)
+                mascotas = await Task.Run(() =>
                 {
-                    mascotas.Add(perro);
-                }
-                foreach (Gato gato in listaGato)
-                {
-                    mascotas.Add(gato);
-                }
-                foreach (Loro loro in listaLoro)
-                {
-                    mascotas.Add(loro);
-                }
-                return mascotas;
-            });
+                    AccesoADatosPerro adoPerro = new AccesoADatosPerro();
+                    AccesoADatosLoro adoLoro = new AccesoADatosLoro();
+                    AccesoADatosGato adoGato = new AccesoADatosGato();
+               
+                    List<Perro> listaPerro = adoPerro.ObtenerLista();
+                    List<Gato> listaGato = adoGato.ObtenerLista();
+                    List<Loro> listaLoro = adoLoro.ObtenerLista();
+                
+                    foreach (Perro perro in listaPerro)
+                    {
+                        mascotas.Add(perro);
+                    }
+                    foreach (Gato gato in listaGato)
+                    {
+                        mascotas.Add(gato);
+                    }
+                    foreach (Loro loro in listaLoro)
+                    {
+                        mascotas.Add(loro);
+                    }
+                    return mascotas;
+                });
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Error Obteniendo los datos {ex.Message}");
+            }
             return mascotas;
         }
         /// <summary>
@@ -130,8 +139,6 @@ namespace AppMascotasUI
                 $"Apellido: {this.usuarioLogueado.apellido} {Environment.NewLine}" +
                 $"Fecha: {this.fecha}";
             Task t1 = Task.Run(() => { this.BucleTiempo(); });
-
-
         }
         /// <summary>
         /// Lee el archivo Usuario.Log que almacena la lista de todos los usuarios logueados
@@ -150,9 +157,9 @@ namespace AppMascotasUI
                         archivo = sr.ReadToEnd();
                     }
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(ex.Message);
             }
             return archivo;
         }
@@ -500,10 +507,9 @@ namespace AppMascotasUI
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            string path = "mascotaFav.xml";
-            
-                Serializadora<Mascota> serializadora = new Serializadora<Mascota>();
-                Mascota mascotaFav = serializadora.Deserializar(path);
+            string path = "mascotaFav.xml";    
+            Serializadora<Mascota> serializadora = new Serializadora<Mascota>();
+            Mascota mascotaFav = serializadora.Deserializar(path);
             if (mascotaFav == null)
             {
                 MessageBox.Show("No se encontro una mascota guardada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -512,7 +518,7 @@ namespace AppMascotasUI
             {
                 MascotaFav frm = new MascotaFav(mascotaFav);
                 frm.ShowDialog();
-            }
+            }        
         }
     }
 }

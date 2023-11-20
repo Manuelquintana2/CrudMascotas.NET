@@ -49,10 +49,14 @@ namespace Entidades
                     aux = (T)ser.Deserialize(reader);
                 }
             }
-            catch(Exception e)
+            catch(FileNotFoundException e)
             {
                 Console.WriteLine(e.Message);
                 return default;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
             return aux;
         }

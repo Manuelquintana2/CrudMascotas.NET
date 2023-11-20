@@ -59,7 +59,7 @@ namespace BaseDeDatos
             }
             catch (Exception ex)
             {
-                return null;
+                throw new Exception(ex.Message);
             }
         }
         public void Agregar(Perro p)
@@ -91,7 +91,7 @@ namespace BaseDeDatos
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message);
             }     
         }
         public void Modificar(Perro p)
@@ -124,7 +124,7 @@ namespace BaseDeDatos
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message);
             }
         }
         public void Eliminar(int id)
@@ -146,7 +146,7 @@ namespace BaseDeDatos
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message);
             }
         }
         

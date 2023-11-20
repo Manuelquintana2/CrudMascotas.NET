@@ -39,7 +39,14 @@ namespace AppMascotasUI
                 {
                     this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
                     AccesoADatosGato ado = new AccesoADatosGato();
-                    ado.Agregar(this.gato);
+                    try
+                    {
+                        ado.Agregar(this.gato);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Error agregando gato: " + ex.Message);
+                    }
                 }
                 else
                 {
@@ -47,7 +54,14 @@ namespace AppMascotasUI
                     {
                         this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico);
                         AccesoADatosGato ado = new AccesoADatosGato();
-                        ado.Agregar(this.gato);
+                        try
+                        {
+                            ado.Agregar(this.gato);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error agregando gato: " + ex.Message);
+                        }
                     }
                     else
                     {
@@ -55,13 +69,27 @@ namespace AppMascotasUI
                         {
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa);
                             AccesoADatosGato ado = new AccesoADatosGato();
-                            ado.Agregar(this.gato);
+                            try
+                            {
+                                ado.Agregar(this.gato);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error agregando gato: " + ex.Message);
+                            }
                         }
                         else
                         {
                             this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames);
                             AccesoADatosGato ado = new AccesoADatosGato();
-                            ado.Agregar(this.gato);
+                            try
+                            {
+                                ado.Agregar(this.gato);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error agregando gato: " + ex.Message);
+                            }
                         }
                     }
                 }

@@ -64,7 +64,7 @@ namespace BaseDeDatos
             }
             catch (Exception ex)
             {
-                return null;
+                throw new Exception(ex.Message);
             }
         }
         public void Agregar(Loro l)
@@ -97,7 +97,7 @@ namespace BaseDeDatos
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message);
             }
         }
         public void Modificar(Loro l)
@@ -153,7 +153,7 @@ namespace BaseDeDatos
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message);
             }
         }
     }
