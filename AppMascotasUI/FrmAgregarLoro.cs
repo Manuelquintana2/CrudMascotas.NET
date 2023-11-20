@@ -43,7 +43,7 @@ namespace AppMascotasUI
                 {
                     if(int.TryParse(this.validarNombre.Nombre, out int id))
                     {
-                        this.loro = null;
+                        this.loro = new Loro();
                     }
                     else
                     {
@@ -65,11 +65,11 @@ namespace AppMascotasUI
                     {
                         if (int.TryParse(this.validarNombre.Nombre, out int id))
                         {
-                            this.loro = null;
+                            this.loro = new Loro();
                         }
                         else
                         {
-                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
+                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, palabra);
                             AccesoADatosLoro ado = new AccesoADatosLoro();
                             try
                             {
@@ -87,11 +87,11 @@ namespace AppMascotasUI
                         {
                             if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                this.loro = null;
+                                this.loro = new Loro();
                             }
                             else
                             {
-                                this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
+                                this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, palabra);
                                 AccesoADatosLoro ado = new AccesoADatosLoro();
                                 try
                                 {
@@ -107,11 +107,11 @@ namespace AppMascotasUI
                         {
                             if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                this.loro = null;
+                                this.loro = new Loro();
                             }
                             else
                             {
-                                this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
+                                this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, palabra);
                                 AccesoADatosLoro ado = new AccesoADatosLoro();
                                 try
                                 {

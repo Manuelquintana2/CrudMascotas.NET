@@ -42,7 +42,7 @@ namespace AppMascotasUI
                 {
                     if(int.TryParse(this.validarNombre.Nombre, out int id))
                     {
-                        this.perro = null;
+                        this.perro = new Perro();
                     }
                     else
                     {
@@ -64,11 +64,11 @@ namespace AppMascotasUI
                     {
                         if (int.TryParse(this.validarNombre.Nombre, out int id))
                         {
-                            this.perro = null;
+                            this.perro = new Perro();
                         }
                         else
                         {
-                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
+                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer);
                             AccesoADatosPerro ado = new AccesoADatosPerro();
                             try
                             {
@@ -86,11 +86,11 @@ namespace AppMascotasUI
                         {
                             if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                this.perro = null;
+                                this.perro = new Perro();
                             }
                             else
                             {
-                                this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
+                                this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer);
                                 AccesoADatosPerro ado = new AccesoADatosPerro();
                                 try
                                 {
@@ -106,11 +106,11 @@ namespace AppMascotasUI
                         {
                             if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                this.perro = null;
+                                this.perro = new Perro();
                             }
                             else
                             {
-                                this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
+                                this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer);
                                 AccesoADatosPerro ado = new AccesoADatosPerro();
                                 try
                                 {

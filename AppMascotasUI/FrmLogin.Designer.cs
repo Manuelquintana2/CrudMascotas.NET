@@ -40,7 +40,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(113, 75);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(12, 110);
             label1.Name = "label1";
             label1.Size = new Size(187, 28);
             label1.TabIndex = 0;
@@ -48,7 +49,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(113, 106);
+            txtUsuario.Location = new Point(12, 141);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(194, 27);
             txtUsuario.TabIndex = 1;
@@ -57,7 +58,8 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(151, 162);
+            label2.ForeColor = SystemColors.ActiveCaptionText;
+            label2.Location = new Point(48, 213);
             label2.Name = "label2";
             label2.Size = new Size(118, 28);
             label2.TabIndex = 2;
@@ -65,7 +67,7 @@
             // 
             // txtClave
             // 
-            txtClave.Location = new Point(113, 193);
+            txtClave.Location = new Point(12, 244);
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(194, 27);
             txtClave.TabIndex = 3;
@@ -75,7 +77,7 @@
             btnIngresar.BackColor = SystemColors.ButtonHighlight;
             btnIngresar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnIngresar.ForeColor = SystemColors.ActiveCaptionText;
-            btnIngresar.Location = new Point(151, 270);
+            btnIngresar.Location = new Point(48, 342);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(99, 40);
             btnIngresar.TabIndex = 4;
@@ -87,7 +89,7 @@
             // 
             btnMostrar.BackColor = SystemColors.ButtonFace;
             btnMostrar.ForeColor = SystemColors.ActiveCaptionText;
-            btnMostrar.Location = new Point(313, 191);
+            btnMostrar.Location = new Point(212, 244);
             btnMostrar.Name = "btnMostrar";
             btnMostrar.Size = new Size(74, 29);
             btnMostrar.TabIndex = 5;
@@ -99,15 +101,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(399, 399);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(634, 460);
             Controls.Add(btnMostrar);
             Controls.Add(btnIngresar);
             Controls.Add(txtClave);
             Controls.Add(label2);
             Controls.Add(txtUsuario);
             Controls.Add(label1);
-            ForeColor = SystemColors.ButtonHighlight;
+            ForeColor = SystemColors.ActiveCaptionText;
             Name = "FrmLogin";
             Text = "Login";
             Load += FrmLogin_Load;

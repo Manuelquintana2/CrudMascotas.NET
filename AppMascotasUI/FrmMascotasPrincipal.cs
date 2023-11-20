@@ -201,19 +201,19 @@ namespace AppMascotasUI
                 frm.ShowDialog();
                 if (frm.DialogResult == DialogResult.OK)
                 {
-                    if (frm.perro != null)
+                    if (frm.perro.Nombre != "")
                     {
                         this.casa += frm.perro;
                     }
                     else
                     {
-                        if (frm.gato != null)
+                        if (frm.gato.Nombre != "")
                         {
                             this.casa += frm.gato;
                         }
                         else
                         {
-                            if (frm.loro != null)
+                            if (frm.loro.Nombre != "")
                             {
                                 this.casa += frm.loro;
                             }

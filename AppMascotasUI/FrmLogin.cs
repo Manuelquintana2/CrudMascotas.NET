@@ -16,6 +16,9 @@ namespace AppMascotasUI
         public FrmLogin()
         {
             InitializeComponent();
+            Bitmap img = new Bitmap(Application.StartupPath + "./login.jpg");
+            this.BackgroundImage = img;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             this.listasUsuario = new List<Usuario>();
             cantIntentos = 3;
             ingresar = new Usuario();
@@ -28,6 +31,8 @@ namespace AppMascotasUI
         /// <param name="e"></param>
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            this.label1.BackColor = Color.Transparent;
+            this.label2.BackColor = Color.Transparent;
             string path = "MOCK_DATA.json";
             try
             {
@@ -41,7 +46,7 @@ namespace AppMascotasUI
             {
                 MessageBox.Show("Error no se encontro el archivo");
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error inesperado: {ex.Message}");
             }
@@ -78,7 +83,7 @@ namespace AppMascotasUI
             if (retorno == false && this.cantIntentos > 1)
             {
                 cantIntentos--;
-                MessageBox.Show($"Contraseña incorrecta, quedan {this.cantIntentos} intentos","Incorrecto");
+                MessageBox.Show($"Contraseña incorrecta, quedan {this.cantIntentos} intentos", "Incorrecto");
             }
             else
             {

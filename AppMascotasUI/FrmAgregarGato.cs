@@ -42,7 +42,7 @@ namespace AppMascotasUI
                 {
                     if(int.TryParse(this.validarNombre.Nombre,out int id))
                     {
-                        this.gato = null;
+                        this.gato = new Gato();
                     }
                     else
                     {
@@ -64,11 +64,11 @@ namespace AppMascotasUI
                     {
                         if (int.TryParse(this.validarNombre.Nombre, out int id))
                         {
-                            this.gato = null;
+                            this.gato = new Gato();
                         }
                         else
                         {
-                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico);
                             AccesoADatosGato ado = new AccesoADatosGato();
                             try
                             {
@@ -86,11 +86,11 @@ namespace AppMascotasUI
                         {
                             if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                this.gato = null;
+                                this.gato = new Gato();
                             }
                             else
                             {
-                                this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                                this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa);
                                 AccesoADatosGato ado = new AccesoADatosGato();
                                 try
                                 {
@@ -106,11 +106,11 @@ namespace AppMascotasUI
                         {
                             if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                this.gato = null;
+                                this.gato = new Gato();
                             }
                             else
                             {
-                                this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                                this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames);
                                 AccesoADatosGato ado = new AccesoADatosGato();
                                 try
                                 {
