@@ -15,9 +15,11 @@ namespace AppMascotasUI
     public partial class FrmAgregarLoro : Form
     {
         public Loro loro;
+        ValidacionEvento validarNombre;
         public FrmAgregarLoro()
         {
             InitializeComponent();
+            this.validarNombre = new ValidacionEvento();
         }
         /// <summary>
         /// Se crea una instancia de Loro y se le asigna al atributo
@@ -29,6 +31,7 @@ namespace AppMascotasUI
             if (this.CargarForm())
             {
                 string nombre = txtNombre.Text;
+                this.validarNombre.Nombre = nombre;
                 int edad = (int)numEdad.Value;
                 decimal peso = numPeso.Value;
                 int cantPatas = (int)numPatas.Value;
@@ -38,58 +41,86 @@ namespace AppMascotasUI
 
                 if (rBtnAfricano.Checked)
                 {
-                    this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
-                    AccesoADatosLoro ado = new AccesoADatosLoro();
-                    try
+                    if(int.TryParse(this.validarNombre.Nombre, out int id))
                     {
-                        ado.Agregar(this.loro);
+                        this.loro = null;
                     }
-                    catch(Exception ex)
+                    else
                     {
-                        MessageBox.Show("No se pudo agregar: " + ex.Message);
+                        this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
+                        AccesoADatosLoro ado = new AccesoADatosLoro();
+                        try
+                        {
+                            ado.Agregar(this.loro);
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show("No se pudo agregar: " + ex.Message);
+                        }
                     }
                 }
                 else
                 {
                     if (rBtnAmazonico.Checked)
                     {
-                        this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.DeAmazonas, tiempoDeVuelo, metrosDeVuelo, palabra);
-                        AccesoADatosLoro ado = new AccesoADatosLoro();
-                        try
+                        if (int.TryParse(this.validarNombre.Nombre, out int id))
                         {
-                            ado.Agregar(this.loro);
+                            this.loro = null;
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            MessageBox.Show("No se pudo agregar: " + ex.Message);
+                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
+                            AccesoADatosLoro ado = new AccesoADatosLoro();
+                            try
+                            {
+                                ado.Agregar(this.loro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se pudo agregar: " + ex.Message);
+                            }
                         }
                     }
                     else
                     {
                         if (rBtnEclecto.Checked)
                         {
-                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Eclecto, tiempoDeVuelo, metrosDeVuelo, palabra);
-                            AccesoADatosLoro ado = new AccesoADatosLoro();
-                            try
+                            if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                ado.Agregar(this.loro);
+                                this.loro = null;
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                MessageBox.Show("No se pudo agregar: " + ex.Message);
+                                this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
+                                AccesoADatosLoro ado = new AccesoADatosLoro();
+                                try
+                                {
+                                    ado.Agregar(this.loro);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("No se pudo agregar: " + ex.Message);
+                                }
                             }
                         }
                         else
                         {
-                            this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Guacamayo, tiempoDeVuelo, metrosDeVuelo, palabra);
-                            AccesoADatosLoro ado = new AccesoADatosLoro();
-                            try
+                            if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                ado.Agregar(this.loro);
+                                this.loro = null;
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                MessageBox.Show("No se pudo agregar: " + ex.Message);
+                                this.loro = new Loro(nombre, edad, peso, cantPatas, ETipoLoro.Africano, tiempoDeVuelo, metrosDeVuelo, palabra);
+                                AccesoADatosLoro ado = new AccesoADatosLoro();
+                                try
+                                {
+                                    ado.Agregar(this.loro);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("No se pudo agregar: " + ex.Message);
+                                }
                             }
                         }
                     }

@@ -15,9 +15,11 @@ namespace AppMascotasUI
     public partial class FrmAgregarPerro : Form
     {
         public Perro perro;
+        ValidacionEvento validarNombre;
         public FrmAgregarPerro()
         {
             InitializeComponent();
+            this.validarNombre = new ValidacionEvento();
         }
         /// <summary>
         /// Crea una instancia de Perro y se la asigna al atributo
@@ -29,6 +31,7 @@ namespace AppMascotasUI
             if (this.CargarForm())
             {
                 string nombre = txtNombre.Text;
+                this.validarNombre.Nombre = nombre;
                 int edad = (int)numEdad.Value;
                 decimal peso = numPeso.Value;
                 int cantPatas = (int)numPatas.Value;
@@ -37,22 +40,13 @@ namespace AppMascotasUI
 
                 if (rBtnGalgo.Checked)
                 {
-                    this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
-                    AccesoADatosPerro ado = new AccesoADatosPerro();
-                    try
+                    if(int.TryParse(this.validarNombre.Nombre, out int id))
                     {
-                        ado.Agregar(this.perro);
+                        this.perro = null;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("Error agregando perro: " +ex.Message);
-                    }
-                }
-                else
-                {
-                    if (rBtnPitbull.Checked)
-                    {
-                        this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Pitbull, kmH, velocidadParaComer);
+                        this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
                         AccesoADatosPerro ado = new AccesoADatosPerro();
                         try
                         {
@@ -60,35 +54,72 @@ namespace AppMascotasUI
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error agregando perro: " + ex.Message);
+                            MessageBox.Show("Error agregando perro: " +ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    if (rBtnPitbull.Checked)
+                    {
+                        if (int.TryParse(this.validarNombre.Nombre, out int id))
+                        {
+                            this.perro = null;
+                        }
+                        else
+                        {
+                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
+                            AccesoADatosPerro ado = new AccesoADatosPerro();
+                            try
+                            {
+                                ado.Agregar(this.perro);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error agregando perro: " + ex.Message);
+                            }
                         }
                     }
                     else
                     {
                         if (rBtnDooberman.Checked)
                         {
-                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Dooberman, kmH, velocidadParaComer);
-                            AccesoADatosPerro ado = new AccesoADatosPerro();
-                            try
+                            if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                ado.Agregar(this.perro);
+                                this.perro = null;
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                MessageBox.Show("Error agregando perro: " + ex.Message);
+                                this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
+                                AccesoADatosPerro ado = new AccesoADatosPerro();
+                                try
+                                {
+                                    ado.Agregar(this.perro);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Error agregando perro: " + ex.Message);
+                                }
                             }
                         }
                         else
                         {
-                            this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Rotweiller, kmH, velocidadParaComer);
-                            AccesoADatosPerro ado = new AccesoADatosPerro();
-                            try
+                            if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                ado.Agregar(this.perro);
+                                this.perro = null;
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                MessageBox.Show("Error agregando perro: " + ex.Message);
+                                this.perro = new Perro(nombre, edad, peso, cantPatas, ERazaPerro.Galgo, kmH, velocidadParaComer);
+                                AccesoADatosPerro ado = new AccesoADatosPerro();
+                                try
+                                {
+                                    ado.Agregar(this.perro);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Error agregando perro: " + ex.Message);
+                                }
                             }
                         }
                     }

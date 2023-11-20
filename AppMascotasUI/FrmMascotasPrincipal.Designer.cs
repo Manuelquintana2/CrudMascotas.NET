@@ -49,6 +49,7 @@
             btnEmitirSonido = new Button();
             btnMostrar = new Button();
             lblHora = new Label();
+            btnDelegado = new Button();
             gBoxOrden.SuspendLayout();
             SuspendLayout();
             // 
@@ -269,12 +270,23 @@
             lblHora.TabIndex = 14;
             lblHora.Text = "label3";
             // 
+            // btnDelegado
+            // 
+            btnDelegado.Location = new Point(18, 71);
+            btnDelegado.Name = "btnDelegado";
+            btnDelegado.Size = new Size(94, 55);
+            btnDelegado.TabIndex = 15;
+            btnDelegado.Text = "Palabra del loro info";
+            btnDelegado.UseVisualStyleBackColor = true;
+            btnDelegado.Click += btnDelegado_Click;
+            // 
             // FrmMascotasPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(1151, 587);
+            Controls.Add(btnDelegado);
             Controls.Add(lblHora);
             Controls.Add(btnMostrar);
             Controls.Add(btnEmitirSonido);
@@ -322,5 +334,6 @@
         private Button btnEmitirSonido;
         private Button btnMostrar;
         private Label lblHora;
+        private Button btnDelegado;
     }
 }

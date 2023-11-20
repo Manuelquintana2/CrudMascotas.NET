@@ -2,12 +2,12 @@
 using System.Text;
 using System.Xml.Serialization;
 
+
 namespace Entidades
 {
     [XmlInclude(typeof(Perro))]
     [XmlInclude(typeof(Gato))]
     [XmlInclude(typeof(Loro))]
-    
     
     /// <summary>
     /// Clase Base abstracta mascota
@@ -30,7 +30,7 @@ namespace Entidades
         public string Nombre
         {
             get { return nombre; }
-            set { nombre = value; }
+            set { this.nombre = value; }
         }
         public int Edad
         {

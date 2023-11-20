@@ -15,9 +15,11 @@ namespace AppMascotasUI
     public partial class FrmAgregarGato : Form
     {
         public Gato gato;
+        ValidacionEvento validarNombre;
         public FrmAgregarGato()
         {
             InitializeComponent();
+            this.validarNombre = new ValidacionEvento();
         }
         /// <summary>
         /// Agrega una instancia de gato y se le asigna al atributo
@@ -29,6 +31,7 @@ namespace AppMascotasUI
             if (this.CargarForm())
             {
                 string nombre = txtNombre.Text;
+                this.validarNombre.Nombre = nombre;
                 int edad = (int)numEdad.Value;
                 decimal peso = numPeso.Value;
                 int cantPatas = (int)numPatas.Value;
@@ -37,58 +40,86 @@ namespace AppMascotasUI
 
                 if (rBtnBambino.Checked)
                 {
-                    this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
-                    AccesoADatosGato ado = new AccesoADatosGato();
-                    try
+                    if(int.TryParse(this.validarNombre.Nombre,out int id))
                     {
-                        ado.Agregar(this.gato);
+                        this.gato = null;
                     }
-                    catch(Exception ex)
+                    else
                     {
-                        MessageBox.Show("Error agregando gato: " + ex.Message);
+                        this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                        AccesoADatosGato ado = new AccesoADatosGato();
+                        try
+                        {
+                            ado.Agregar(this.gato);
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show("Error agregando gato: " + ex.Message);
+                        }
                     }
                 }
                 else
                 {
                     if (rBtnBritanico.Checked)
                     {
-                        this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Britanico);
-                        AccesoADatosGato ado = new AccesoADatosGato();
-                        try
+                        if (int.TryParse(this.validarNombre.Nombre, out int id))
                         {
-                            ado.Agregar(this.gato);
+                            this.gato = null;
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            MessageBox.Show("Error agregando gato: " + ex.Message);
+                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                            AccesoADatosGato ado = new AccesoADatosGato();
+                            try
+                            {
+                                ado.Agregar(this.gato);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error agregando gato: " + ex.Message);
+                            }
                         }
                     }
                     else
                     {
                         if (rBtnPersa.Checked)
                         {
-                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Persa);
-                            AccesoADatosGato ado = new AccesoADatosGato();
-                            try
+                            if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                ado.Agregar(this.gato);
+                                this.gato = null;
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                MessageBox.Show("Error agregando gato: " + ex.Message);
+                                this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                                AccesoADatosGato ado = new AccesoADatosGato();
+                                try
+                                {
+                                    ado.Agregar(this.gato);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Error agregando gato: " + ex.Message);
+                                }
                             }
                         }
                         else
                         {
-                            this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Siames);
-                            AccesoADatosGato ado = new AccesoADatosGato();
-                            try
+                            if (int.TryParse(this.validarNombre.Nombre, out int id))
                             {
-                                ado.Agregar(this.gato);
+                                this.gato = null;
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                MessageBox.Show("Error agregando gato: " + ex.Message);
+                                this.gato = new Gato(nombre, edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, ERazaGato.Bambino);
+                                AccesoADatosGato ado = new AccesoADatosGato();
+                                try
+                                {
+                                    ado.Agregar(this.gato);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Error agregando gato: " + ex.Message);
+                                }
                             }
                         }
                     }

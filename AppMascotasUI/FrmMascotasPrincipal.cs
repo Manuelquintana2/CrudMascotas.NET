@@ -15,6 +15,7 @@ using Microsoft.Win32;
 
 namespace AppMascotasUI
 {
+    public delegate void DelegadoPalabras(Loro loro);
     public delegate void DelegadoActualizar(DateTime fecha);
     public partial class FrmMascotasPrincipal : Form
     {
@@ -27,6 +28,10 @@ namespace AppMascotasUI
         private Casa casa;
         private CancellationToken cancelarFlujo;
         private CancellationTokenSource fuenteDeCancelacion;
+        DelegadoPalabras miDelegado;
+        DelegadoPalabras otroDelegado;
+        DelegadoPalabras delegadoFinal;
+
         /// <summary>
         /// Inicializa la lista de mascotas
         /// inicializa la fecha con el formato corto
@@ -96,11 +101,11 @@ namespace AppMascotasUI
                     AccesoADatosPerro adoPerro = new AccesoADatosPerro();
                     AccesoADatosLoro adoLoro = new AccesoADatosLoro();
                     AccesoADatosGato adoGato = new AccesoADatosGato();
-               
+
                     List<Perro> listaPerro = adoPerro.ObtenerLista();
                     List<Gato> listaGato = adoGato.ObtenerLista();
                     List<Loro> listaLoro = adoLoro.ObtenerLista();
-                
+
                     foreach (Perro perro in listaPerro)
                     {
                         mascotas.Add(perro);
@@ -116,7 +121,7 @@ namespace AppMascotasUI
                     return mascotas;
                 });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error Obteniendo los datos {ex.Message}");
             }
@@ -196,19 +201,19 @@ namespace AppMascotasUI
                 frm.ShowDialog();
                 if (frm.DialogResult == DialogResult.OK)
                 {
-                    if (frm.perro.Nombre != "")
+                    if (frm.perro != null)
                     {
                         this.casa += frm.perro;
                     }
                     else
                     {
-                        if (frm.gato.Nombre != "")
+                        if (frm.gato != null)
                         {
                             this.casa += frm.gato;
                         }
                         else
                         {
-                            if (frm.loro.Nombre != "")
+                            if (frm.loro != null)
                             {
                                 this.casa += frm.loro;
                             }
@@ -482,7 +487,7 @@ namespace AppMascotasUI
                 return;
             }
             else
-            {      
+            {
                 MessageBox.Show(m.TipoDeMascota(), "Tipo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -495,7 +500,7 @@ namespace AppMascotasUI
         private void btnEmitirSonido_Click(object sender, EventArgs e)
         {
             Mascota m = ObtenerMascota();
-            if(m == null)
+            if (m == null)
             {
                 return;
             }
@@ -507,7 +512,7 @@ namespace AppMascotasUI
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            string path = "mascotaFav.xml";    
+            string path = "mascotaFav.xml";
             Serializadora<Mascota> serializadora = new Serializadora<Mascota>();
             Mascota mascotaFav = serializadora.Deserializar(path);
             if (mascotaFav == null)
@@ -518,7 +523,71 @@ namespace AppMascotasUI
             {
                 MascotaFav frm = new MascotaFav(mascotaFav);
                 frm.ShowDialog();
-            }        
+            }
+        }
+        private void CortarPalabrasLoro(Loro loro)
+        {
+            try
+            {
+                string cadenaCortada = loro.Palabra.Substring(0, 4);
+                MessageBox.Show("Cadena cortada: " + cadenaCortada, "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                throw new MiExcepcion("Ocurrio un error en: ", loro);
+            }
+        }
+        private void ConvertirMayuscPalabrasLoro(Loro loro)
+        {
+            try
+            { 
+                string cadenaMayus = loro.Palabra.ToUpper();
+                MessageBox.Show("Cadena en mayuscula: " + cadenaMayus, "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                throw new MiExcepcion("Ocurrio un error en: ", loro);
+            }
+        }
+        private void ContarCaracteresLoro(Loro loro)
+        {
+            try
+            {
+                int caracteres = loro.Palabra.Length;
+                MessageBox.Show($"Caracteres de la palabra: {caracteres}", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch 
+            {
+                throw new MiExcepcion("Ocurrio un error en: ", loro);
+            }
+        }
+        private void btnDelegado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.miDelegado = ContarCaracteresLoro;
+                this.miDelegado += ConvertirMayuscPalabrasLoro;
+                this.miDelegado += CortarPalabrasLoro;
+                Mascota m = ObtenerMascota();
+                if(m is Loro)
+                {
+                    Loro loro = new Loro();
+                    loro = (Loro)m;
+                    miDelegado(loro);
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un loro", "cuidado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(MiExcepcion ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public static void NombreInvalido(string m)
+        {
+            MessageBox.Show(m, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
