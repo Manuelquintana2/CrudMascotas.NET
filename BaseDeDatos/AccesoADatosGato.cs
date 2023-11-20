@@ -61,7 +61,7 @@ namespace BaseDeDatos
                 }
                 return lista;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -126,7 +126,7 @@ namespace BaseDeDatos
                     conexion.Close();
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -148,7 +148,7 @@ namespace BaseDeDatos
                     conexion.Close();
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw new Exception(ex.Message);
             }
