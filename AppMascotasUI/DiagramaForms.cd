@@ -1,2 +1,144 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="AppMascotasUI.FrmAgregarGato" Collapsed="true">
+    <Position X="16.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAAA0AAAADCAIJARAACAAAACACBAAIQAAgAAAAgAAAA=</HashCode>
+      <FileName>FrmAgregarGato.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmAgregarLoro" Collapsed="true">
+    <Position X="13.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAQAAAgjGAAJAYAACAAgACADBABAQAAAAAAAgAAAA=</HashCode>
+      <FileName>FrmAgregarLoro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmAgregarMascotas" Collapsed="true">
+    <Position X="14.5" Y="6.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACACAACGAAABAAQCAAAACAAFAAAAAAgAAAABQAAA=</HashCode>
+      <FileName>FrmAgregarMascotas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmAgregarPerro" Collapsed="true">
+    <Position X="15" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBAAEAQAADDAAJAQACCEAAACgCBAAAQBAAAAAAhAAAA=</HashCode>
+      <FileName>FrmAgregarPerro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmEliminar" Collapsed="true">
+    <Position X="9" Y="6.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAgACAAAJAQQgCAAAACACAAAAQAABAAAAgAAAA=</HashCode>
+      <FileName>FrmEliminar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmEliminarGato" Collapsed="true">
+    <Position X="13.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAA0AAAACACoBABAACAAAACCABAAIAAAgAAAAAAAAA=</HashCode>
+      <FileName>FrmEliminarGato.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmEliminarLoro" Collapsed="true">
+    <Position X="6.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAgiEAABAIAgCAAgACCBBABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FrmEliminarLoro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmEliminarPerro" Collapsed="true">
+    <Position X="10.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAQAACBAgDAAACCEAAACiABAAAABAAAAAABAAAA=</HashCode>
+      <FileName>FrmEliminarPerro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmLogin" Collapsed="true">
+    <Position X="15.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAAAAAAACCEAADAAAACgAAACAAAAAUAAAEAAAAAAIAA=</HashCode>
+      <FileName>FrmLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmMascotasPrincipal" Collapsed="true">
+    <Position X="12.25" Y="3" Width="7" />
+    <TypeIdentifier>
+      <HashCode>ERIEBAggKa2gKFgCBBCAAQGTCQBKQAHAABAiaQAACIA=</HashCode>
+      <FileName>FrmMascotasPrincipal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmModificar" Collapsed="true">
+    <Position X="19.75" Y="6.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>EAAIAAAAACAAAJAQQgCCAAACACAAAAQAAAAAIAgACAA=</HashCode>
+      <FileName>FrmModificar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmModificarGato" Collapsed="true">
+    <Position X="24" Y="8.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>BAAA0AAAACAAoBABAACAAAACAABAAIIAAgAAAAAAAAA=</HashCode>
+      <FileName>FrmModificarGato.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmModificarLoro" Collapsed="true">
+    <Position X="15.25" Y="8.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAgiEAABAIAgCEAgACABBABAIAAAAAAAAAAAA=</HashCode>
+      <FileName>FrmModificarLoro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmModificarPerro" Collapsed="true">
+    <Position X="19.75" Y="8.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAQAACBAgBEAACCEAAACgABAAAIBAAAAAABAAAA=</HashCode>
+      <FileName>FrmModificarPerro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.FrmUsuarios" Collapsed="true">
+    <Position X="14.25" Y="5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAGBAAAAAAACAQAACAAAAAAAAAAACAAAAABA=</HashCode>
+      <FileName>FrmUsuarios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.MascotaFav" Collapsed="true">
+    <Position X="14.5" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AgAAAABAACAAABAAAgCAAAACAAAAAAAAAAAIAAAAQAA=</HashCode>
+      <FileName>MascotaFav.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppMascotasUI.ValidacionEvento" Collapsed="true">
+    <Position X="20.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValidacionEvento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Delegate Name="AppMascotasUI.DelegadoPalabras">
+    <Position X="12.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FrmMascotasPrincipal.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="AppMascotasUI.DelegadoActualizar">
+    <Position X="17.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FrmMascotasPrincipal.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="AppMascotasUI.ValidarNombre">
+    <Position X="20.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValidacionEvento.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

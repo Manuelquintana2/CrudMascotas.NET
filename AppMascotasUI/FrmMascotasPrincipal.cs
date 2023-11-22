@@ -15,7 +15,15 @@ using Microsoft.Win32;
 
 namespace AppMascotasUI
 {
+    /// <summary>
+    /// Delegado que recibira un parametro loro, se le agregaran 3 metodos a este delegado
+    /// </summary>
+    /// <param name="loro"></param>
     public delegate void DelegadoPalabras(Loro loro);
+    /// <summary>
+    /// Delegado para poder usar multihilos, recibe la fecha
+    /// </summary>
+    /// <param name="fecha"></param>
     public delegate void DelegadoActualizar(DateTime fecha);
     public partial class FrmMascotasPrincipal : Form
     {
@@ -29,12 +37,11 @@ namespace AppMascotasUI
         private CancellationToken cancelarFlujo;
         private CancellationTokenSource fuenteDeCancelacion;
         DelegadoPalabras miDelegado;
-        DelegadoPalabras otroDelegado;
-        DelegadoPalabras delegadoFinal;
 
         /// <summary>
         /// Inicializa la lista de mascotas
         /// inicializa la fecha con el formato corto
+        /// Inicializa la fecha, y los tokens de cancelacion de hilos
         /// </summary>
         public FrmMascotasPrincipal()
         {
@@ -69,6 +76,9 @@ namespace AppMascotasUI
                 lstMascotas.Items.Add(mascota.ToString());
             }
         }
+        /// <summary>
+        /// mientras el token de cancelacion no se llame, actualiza la fecha
+        /// </summary>
         private void BucleTiempo()
         {
             do
@@ -79,6 +89,10 @@ namespace AppMascotasUI
                 Thread.Sleep(1000);
             } while (true);
         }
+        /// <summary>
+        /// Metodo para actualizar el label, con la fecha
+        /// </summary>
+        /// <param name="fecha"></param>
         private void ActualizarFecha(DateTime fecha)
         {
             if (this.lblHora.InvokeRequired)
@@ -86,11 +100,16 @@ namespace AppMascotasUI
                 DelegadoActualizar d = new DelegadoActualizar(ActualizarFecha);
                 object[] arrayParametro = { fecha };
 
-                this.lblHora.Invoke(d, arrayParametro); // -> para invocar al hilo principal, tenes que 
+                this.lblHora.Invoke(d, arrayParametro); //    para invocar al hilo principal, tenes que 
                                                         //    hacerlo desde un control creado en el hilo main
             }
             else this.lblHora.Text = fecha.ToString();
         }
+        /// <summary>
+        /// Funcion que fusiona todas las listas obtenida de la BD, y las agrega a una lista Mascota
+        /// Uso Task para que no se tilde el programa mientras se obtienen los datos de la base
+        /// </summary>
+        /// <returns></returns>
         private async Task<List<Mascota>> FusionarListas()
         {
             List<Mascota> mascotas = new List<Mascota>();
@@ -391,7 +410,8 @@ namespace AppMascotasUI
             }
         }
         /// <summary>
-        /// Guarda el archivo con el registro de la lista de mascotas donde quiera el usuario
+        /// Guarda la mascota seleccionada por el usuario, en un archivoXML
+        /// Utiliza la clase Generica
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -428,6 +448,10 @@ namespace AppMascotasUI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
         }
+        /// <summary>
+        /// Obtiene la mascota selecciona en la ListBox
+        /// </summary>
+        /// <returns></returns>
         private Mascota ObtenerMascota()
         {
             int indice;
@@ -442,11 +466,13 @@ namespace AppMascotasUI
             return m;
         }
         /// <summary>
-        /// Abre el archivo con el registro de la lista de mascotas donde eligio el usuario y lo deserealiza
+        /// Llama al fusionar lista, le manda una orden await, para que no se tilde
+        /// LLama a actualizar visor para actualizar los datos en la ListBox
         /// Actualiza la lista de mascotas de la casa para ver las mascotas del archivo guardado
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+       
         private async void btnObtenerDatos_Click(object sender, EventArgs e)
         {
             this.casa.mascotas = await this.FusionarListas();
@@ -509,7 +535,12 @@ namespace AppMascotasUI
                 MessageBox.Show(m.EmitirSonido(), "Sonido");
             }
         }
-
+        /// <summary>
+        /// Deserealiza la mascota guardada por el usuario, usando la clase generica
+        /// Abre un form con tu mascota Favorita
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             string path = "mascotaFav.xml";
@@ -561,6 +592,11 @@ namespace AppMascotasUI
                 throw new MiExcepcion("Ocurrio un error en: ", loro);
             }
         }
+        /// <summary>
+        /// Guarda en el atributo miDelegado de tipo DelegadoPalabras, los metodos que va a invocar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelegado_Click(object sender, EventArgs e)
         {
             try
@@ -585,6 +621,10 @@ namespace AppMascotasUI
                 MessageBox.Show(ex.Message);
             }
         }
+        /// <summary>
+        /// Recibe un nombre invalido, hace una advertencia
+        /// </summary>
+        /// <param name="m"></param>
         public static void NombreInvalido(string m)
         {
             MessageBox.Show(m, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -9,10 +9,16 @@ using System.Threading.Tasks;
 
 namespace BaseDeDatos
 {
+    /// <summary>
+    /// Clase que integra una interfaz generica
+    /// </summary>
     public class AccesoADatosGato : IAccesoADatos<Gato>
     {
         private SqlConnection conexion;
         private static string cadena_conexion;
+        /// <summary>
+        /// Constructor estatico, asigna la cadena de conexion a la variable cadena_conexion.
+        /// </summary>
         static AccesoADatosGato()
         {
             AccesoADatosGato.cadena_conexion = Properties.Resources.miConexion;
@@ -21,6 +27,11 @@ namespace BaseDeDatos
         {
             this.conexion = new SqlConnection(AccesoADatosGato.cadena_conexion);
         }
+        /// <summary>
+        /// Se conecta a la BD, obtiene los gatos que hay en la tabla y la retorna en forma de una lista de gatos
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public List<Gato> ObtenerLista()
         {
             List<Gato> lista = new List<Gato>();
@@ -66,6 +77,11 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Recibe un Gato como parametro, lo agrega en la tabla de la BD
+        /// </summary>
+        /// <param name="g"></param>
+        /// <exception cref="Exception"></exception>
         public void Agregar(Gato g)
         {
 
@@ -98,6 +114,11 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Recibe un gato como parametro, y modifica el gato coincidente por id en la Tabla con sus nuevos parametros
+        /// </summary>
+        /// <param name="g"></param>
+        /// <exception cref="Exception"></exception>
         public void Modificar(Gato g)
         {
             string query = "UPDATE Gato " +
@@ -131,6 +152,11 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Recibe un Id, Elimina al gato que contenga ese id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="Exception"></exception>
         public void Eliminar(int id)
         {
             string query = "DELETE FROM Gato " +

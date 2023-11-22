@@ -35,6 +35,18 @@ namespace Entidades
             set { this.raza = value; }
         }
 
+        /// <summary>
+        /// Constructor que recibe todos los parametros como atributos tiene
+        /// Se guarda el Id
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="edad"></param>
+        /// <param name="peso"></param>
+        /// <param name="cantPatas"></param>
+        /// <param name="velocidadDeReaccion"></param>
+        /// <param name="metrosDeSalto"></param>
+        /// <param name="raza"></param>
+        /// <param name="id"></param>
         public Gato(string nombre, int edad, decimal peso, int cantPatas, int velocidadDeReaccion, int metrosDeSalto, ERazaGato raza, int id):this(nombre,edad, peso, cantPatas, velocidadDeReaccion, metrosDeSalto, raza)
         {
             this.id = id;

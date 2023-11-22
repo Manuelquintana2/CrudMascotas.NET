@@ -9,10 +9,16 @@ using System.Threading.Tasks;
 
 namespace BaseDeDatos
 {
+    /// <summary>
+    /// Clase que Integra una interfaz generica
+    /// </summary>
     public class AccesoADatosLoro : IAccesoADatos<Loro>
     {
         private SqlConnection conexion;
         private static string cadena_conexion;
+        /// <summary>
+        /// Contructor estatico, asigna el valor de cadena_conexion
+        /// </summary>
         static AccesoADatosLoro()
         {
             AccesoADatosLoro.cadena_conexion = Properties.Resources.miConexion;
@@ -21,6 +27,11 @@ namespace BaseDeDatos
         {
             this.conexion = new SqlConnection(AccesoADatosLoro.cadena_conexion);
         }
+        /// <summary>
+        /// Obtiene los loros de la BD, y los retorna en forma de lista de loros
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public List<Loro> ObtenerLista()
         {
             List<Loro> lista = new List<Loro>();
@@ -67,6 +78,11 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Recibe un loro y lo agrega a la BD
+        /// </summary>
+        /// <param name="l"></param>
+        /// <exception cref="Exception"></exception>
         public void Agregar(Loro l)
         {
 
@@ -100,6 +116,11 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Recibe un loro y lo modifica en la BD
+        /// </summary>
+        /// <param name="l"></param>
+        /// <exception cref="Exception"></exception>
         public void Modificar(Loro l)
         {
             string query = "UPDATE Loro " +
@@ -134,6 +155,11 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Recibe un Id, elimina el Id coincidente en la BD
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="Exception"></exception>
         public void Eliminar(int id)
         {
             string query = "DELETE FROM Loro " +

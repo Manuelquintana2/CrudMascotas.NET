@@ -5,10 +5,16 @@ using System.Data.SqlClient;
 
 namespace BaseDeDatos
 {
+    /// <summary>
+    /// Clase que integra una interfaz generica
+    /// </summary>
     public class AccesoADatosPerro : IAccesoADatos<Perro>
     {
         private SqlConnection conexion;
         private static string cadena_conexion;
+        /// <summary>
+        /// Constructor estatico que inicializa la cadena_conexion 
+        /// </summary>
         static AccesoADatosPerro()
         {
             AccesoADatosPerro.cadena_conexion = Properties.Resources.miConexion;
@@ -17,6 +23,11 @@ namespace BaseDeDatos
         {
             this.conexion = new SqlConnection(AccesoADatosPerro.cadena_conexion);
         }
+        /// <summary>
+        /// Obtiene los perros de la BD, los retorna en una lista de perros
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public List<Perro> ObtenerLista()
         {
             List<Perro> lista = new List<Perro>();
@@ -62,6 +73,11 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Agrega el perro recibido por parametro a la BD
+        /// </summary>
+        /// <param name="p"></param>
+        /// <exception cref="Exception"></exception>
         public void Agregar(Perro p)
         {
             
@@ -94,6 +110,11 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }     
         }
+        /// <summary>
+        /// Modifica el perro, por el nuevo perro recibido por Parametro
+        /// </summary>
+        /// <param name="p"></param>
+        /// <exception cref="Exception"></exception>
         public void Modificar(Perro p)
         {
             string query = "UPDATE Perro " +
@@ -127,6 +148,11 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Elimina el perro de la BD, lo busca por ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="Exception"></exception>
         public void Eliminar(int id)
         {
             string query = "DELETE FROM Perro " +
@@ -149,7 +175,5 @@ namespace BaseDeDatos
                 throw new Exception(ex.Message);
             }
         }
-        
-        
     }
 }

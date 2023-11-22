@@ -24,6 +24,19 @@ namespace Entidades
         public int MetrosDeVuelo { get => metrosDeVuelo; set => metrosDeVuelo = value; }
         public string Palabra { get => palabra; set => palabra = value; }
 
+        /// <summary>
+        /// Recibe todos los parametros como atributos tiene
+        /// Se le asigna un Id
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="edad"></param>
+        /// <param name="peso"></param>
+        /// <param name="cantPatas"></param>
+        /// <param name="tipo"></param>
+        /// <param name="tiempoDeVuelo"></param>
+        /// <param name="metrosDeVuelo"></param>
+        /// <param name="palabra"></param>
+        /// <param name="id"></param>
         public Loro(string nombre, int edad, decimal peso, int cantPatas, ETipoLoro tipo, int tiempoDeVuelo, int metrosDeVuelo, string palabra, int id):this(nombre, edad, peso, cantPatas, tipo, tiempoDeVuelo, metrosDeVuelo, palabra)
         {
             this.id = id;

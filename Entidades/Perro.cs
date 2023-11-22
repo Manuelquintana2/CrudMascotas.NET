@@ -22,7 +22,18 @@ namespace Entidades
         public ERazaPerro Raza { get => raza; set => raza = value; }
 
 
-
+        /// <summary>
+        /// Recibe todos los parametros como atributos tiene
+        /// Se le asigna un valor al Id
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="edad"></param>
+        /// <param name="peso"></param>
+        /// <param name="cantPatas"></param>
+        /// <param name="raza"></param>
+        /// <param name="kilometrosPorHora"></param>
+        /// <param name="velocidadParaComer"></param>
+        /// <param name="id"></param>
         public Perro(string nombre, int edad, decimal peso, int cantPatas, ERazaPerro raza, int kilometrosPorHora, int velocidadParaComer, int id) : this(nombre, edad, peso, cantPatas, raza, kilometrosPorHora, velocidadParaComer)
         {
             this.id = id;
